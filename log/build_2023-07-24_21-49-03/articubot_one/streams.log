@@ -1,0 +1,87 @@
+[0.014s] Invoking command in '/home/alberto/ros2_ws/build/articubot_one': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alberto/ros2_ws/install/my_robot_controller:/home/alberto/ros2_ws/install/my_py_pkg:/home/alberto/learning_ws/install/my_fist_pkg:/opt/ros/foxy /usr/bin/cmake /home/alberto/ros2_ws/src/articubot_one-main -DCMAKE_INSTALL_PREFIX=/home/alberto/ros2_ws/install/articubot_one
+[0.348s] -- The C compiler identification is GNU 9.4.0
+[0.606s] -- The CXX compiler identification is GNU 9.4.0
+[0.612s] -- Check for working C compiler: /usr/bin/cc
+[0.684s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.686s] -- Detecting C compiler ABI info
+[0.759s] -- Detecting C compiler ABI info - done
+[0.771s] -- Detecting C compile features
+[0.771s] -- Detecting C compile features - done
+[0.774s] -- Check for working CXX compiler: /usr/bin/c++
+[0.850s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.851s] -- Detecting CXX compiler ABI info
+[0.918s] -- Detecting CXX compiler ABI info - done
+[0.927s] -- Detecting CXX compile features
+[0.928s] -- Detecting CXX compile features - done
+[0.930s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.952s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.952s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.149s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[1.211s] -- Added test 'copyright' to check source files copyright and LICENSE
+[1.214s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.215s] -- Added test 'lint_cmake' to check CMake code style
+[1.215s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[1.217s] -- Added test 'xmllint' to check XML markup files
+[1.219s] -- Configuring done
+[1.220s] -- Generating done
+[1.221s] -- Build files have been written to: /home/alberto/ros2_ws/build/articubot_one
+[1.224s] Invoked command in '/home/alberto/ros2_ws/build/articubot_one' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alberto/ros2_ws/install/my_robot_controller:/home/alberto/ros2_ws/install/my_py_pkg:/home/alberto/learning_ws/install/my_fist_pkg:/opt/ros/foxy /usr/bin/cmake /home/alberto/ros2_ws/src/articubot_one-main -DCMAKE_INSTALL_PREFIX=/home/alberto/ros2_ws/install/articubot_one
+[1.227s] Invoking command in '/home/alberto/ros2_ws/build/articubot_one': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alberto/ros2_ws/install/my_robot_controller:/home/alberto/ros2_ws/install/my_py_pkg:/home/alberto/learning_ws/install/my_fist_pkg:/opt/ros/foxy /usr/bin/cmake --build /home/alberto/ros2_ws/build/articubot_one -- -j8 -l8
+[1.261s] Invoked command in '/home/alberto/ros2_ws/build/articubot_one' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alberto/ros2_ws/install/my_robot_controller:/home/alberto/ros2_ws/install/my_py_pkg:/home/alberto/learning_ws/install/my_fist_pkg:/opt/ros/foxy /usr/bin/cmake --build /home/alberto/ros2_ws/build/articubot_one -- -j8 -l8
+[1.291s] Invoking command in '/home/alberto/ros2_ws/build/articubot_one': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alberto/ros2_ws/install/my_robot_controller:/home/alberto/ros2_ws/install/my_py_pkg:/home/alberto/learning_ws/install/my_fist_pkg:/opt/ros/foxy /usr/bin/cmake --install /home/alberto/ros2_ws/build/articubot_one
+[1.298s] -- Install configuration: ""
+[1.298s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/config
+[1.298s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/config/empty.yaml
+[1.299s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/config/ball_tracker_params_robot.yaml
+[1.299s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/config/ball_tracker_params_sim.yaml
+[1.299s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/config/nav2_params.yaml
+[1.299s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/config/view_bot.rviz
+[1.299s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/config/map.rviz
+[1.299s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/config/gazebo_params.yaml
+[1.299s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/config/main.rviz
+[1.299s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/config/mapper_params_online_async.yaml
+[1.299s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/config/twist_mux.yaml
+[1.299s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/config/my_controllers.yaml
+[1.299s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/config/drive_bot.rviz
+[1.299s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/config/gaz_ros2_ctl_use_sim.yaml
+[1.299s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/config/joystick.yaml
+[1.299s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/description
+[1.299s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/description/robot.urdf.xacro
+[1.299s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/description/robot_core.xacro
+[1.300s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/description/lidar.xacro
+[1.300s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/description/ros2_control.xacro
+[1.300s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/description/gazebo_control.xacro
+[1.300s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/description/camera.xacro
+[1.300s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/description/depth_camera.xacro
+[1.300s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/description/face.xacro
+[1.300s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/description/inertial_macros.xacro
+[1.300s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/launch
+[1.300s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/launch/joystick.launch.py
+[1.300s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/launch/rsp.launch.py
+[1.300s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/launch/navigation_launch.py
+[1.300s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/launch/ball_tracker.launch.py
+[1.300s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/launch/localization_launch.py
+[1.301s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/launch/online_async_launch.py
+[1.301s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/launch/launch_sim.launch.py
+[1.301s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/launch/rplidar.launch.py
+[1.301s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/launch/camera.launch.py
+[1.301s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/launch/launch_robot.launch.py
+[1.301s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/worlds
+[1.301s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/worlds/obstacles.world
+[1.301s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/worlds/empty.world
+[1.301s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/ament_index/resource_index/package_run_dependencies/articubot_one
+[1.302s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/ament_index/resource_index/parent_prefix_path/articubot_one
+[1.302s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/environment/ament_prefix_path.sh
+[1.302s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/environment/ament_prefix_path.dsv
+[1.302s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/environment/path.sh
+[1.302s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/environment/path.dsv
+[1.302s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/local_setup.bash
+[1.302s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/local_setup.sh
+[1.302s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/local_setup.zsh
+[1.303s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/local_setup.dsv
+[1.303s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/package.dsv
+[1.303s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/ament_index/resource_index/packages/articubot_one
+[1.303s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/cmake/articubot_oneConfig.cmake
+[1.303s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/cmake/articubot_oneConfig-version.cmake
+[1.303s] -- Installing: /home/alberto/ros2_ws/install/articubot_one/share/articubot_one/package.xml
+[1.306s] Invoked command in '/home/alberto/ros2_ws/build/articubot_one' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alberto/ros2_ws/install/my_robot_controller:/home/alberto/ros2_ws/install/my_py_pkg:/home/alberto/learning_ws/install/my_fist_pkg:/opt/ros/foxy /usr/bin/cmake --install /home/alberto/ros2_ws/build/articubot_one
