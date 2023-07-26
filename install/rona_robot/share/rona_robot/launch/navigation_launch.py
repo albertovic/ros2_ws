@@ -1,0 +1,1 @@
+/home/alberto/ros2_ws/src/rona_robot/launch/navigation_launch.py

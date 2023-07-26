@@ -1,0 +1,38 @@
+[0.645s] Invoking command in '/home/alberto/ros2_ws/build/my_robot_controller': PYTHONPATH=/home/alberto/ros2_ws/build/my_robot_controller/prefix_override:/home/alberto/ros2_ws/install/my_robot_controller/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --uninstall --editable --build-directory /home/alberto/ros2_ws/build/my_robot_controller/build
+[0.870s] running develop
+[1.012s] Removing /home/alberto/ros2_ws/install/my_robot_controller/lib/python3.8/site-packages/my-robot-controller.egg-link (link to .)
+[1.030s] Invoked command in '/home/alberto/ros2_ws/build/my_robot_controller' returned '0': PYTHONPATH=/home/alberto/ros2_ws/build/my_robot_controller/prefix_override:/home/alberto/ros2_ws/install/my_robot_controller/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --uninstall --editable --build-directory /home/alberto/ros2_ws/build/my_robot_controller/build
+[1.033s] Invoking command in '/home/alberto/ros2_ws/src/my_robot_controller': PYTHONPATH=/home/alberto/ros2_ws/build/my_robot_controller/prefix_override:/home/alberto/ros2_ws/install/my_robot_controller/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/my_robot_controller build --build-base /home/alberto/ros2_ws/build/my_robot_controller/build install --record /home/alberto/ros2_ws/build/my_robot_controller/install.log --install-scripts $base/lib/my_robot_controller --single-version-externally-managed
+[1.239s] running egg_info
+[1.239s] writing ../../build/my_robot_controller/my_robot_controller.egg-info/PKG-INFO
+[1.240s] writing dependency_links to ../../build/my_robot_controller/my_robot_controller.egg-info/dependency_links.txt
+[1.240s] writing entry points to ../../build/my_robot_controller/my_robot_controller.egg-info/entry_points.txt
+[1.240s] writing requirements to ../../build/my_robot_controller/my_robot_controller.egg-info/requires.txt
+[1.240s] writing top-level names to ../../build/my_robot_controller/my_robot_controller.egg-info/top_level.txt
+[1.270s] reading manifest file '../../build/my_robot_controller/my_robot_controller.egg-info/SOURCES.txt'
+[1.271s] writing manifest file '../../build/my_robot_controller/my_robot_controller.egg-info/SOURCES.txt'
+[1.271s] running build
+[1.271s] running build_py
+[1.271s] running install
+[1.272s] running install_lib
+[1.273s] creating /home/alberto/ros2_ws/install/my_robot_controller/lib/python3.8/site-packages/my_robot_controller
+[1.273s] copying /home/alberto/ros2_ws/build/my_robot_controller/build/lib/my_robot_controller/draw_circle.py -> /home/alberto/ros2_ws/install/my_robot_controller/lib/python3.8/site-packages/my_robot_controller
+[1.273s] copying /home/alberto/ros2_ws/build/my_robot_controller/build/lib/my_robot_controller/turtle_controller.py -> /home/alberto/ros2_ws/install/my_robot_controller/lib/python3.8/site-packages/my_robot_controller
+[1.273s] copying /home/alberto/ros2_ws/build/my_robot_controller/build/lib/my_robot_controller/pose_subscriber.py -> /home/alberto/ros2_ws/install/my_robot_controller/lib/python3.8/site-packages/my_robot_controller
+[1.273s] copying /home/alberto/ros2_ws/build/my_robot_controller/build/lib/my_robot_controller/my_first_node.py -> /home/alberto/ros2_ws/install/my_robot_controller/lib/python3.8/site-packages/my_robot_controller
+[1.273s] copying /home/alberto/ros2_ws/build/my_robot_controller/build/lib/my_robot_controller/__init__.py -> /home/alberto/ros2_ws/install/my_robot_controller/lib/python3.8/site-packages/my_robot_controller
+[1.274s] byte-compiling /home/alberto/ros2_ws/install/my_robot_controller/lib/python3.8/site-packages/my_robot_controller/draw_circle.py to draw_circle.cpython-38.pyc
+[1.275s] byte-compiling /home/alberto/ros2_ws/install/my_robot_controller/lib/python3.8/site-packages/my_robot_controller/turtle_controller.py to turtle_controller.cpython-38.pyc
+[1.275s] byte-compiling /home/alberto/ros2_ws/install/my_robot_controller/lib/python3.8/site-packages/my_robot_controller/pose_subscriber.py to pose_subscriber.cpython-38.pyc
+[1.275s] byte-compiling /home/alberto/ros2_ws/install/my_robot_controller/lib/python3.8/site-packages/my_robot_controller/my_first_node.py to my_first_node.cpython-38.pyc
+[1.276s] byte-compiling /home/alberto/ros2_ws/install/my_robot_controller/lib/python3.8/site-packages/my_robot_controller/__init__.py to __init__.cpython-38.pyc
+[1.276s] running install_data
+[1.276s] running install_egg_info
+[1.277s] Copying ../../build/my_robot_controller/my_robot_controller.egg-info to /home/alberto/ros2_ws/install/my_robot_controller/lib/python3.8/site-packages/my_robot_controller-0.0.0-py3.8.egg-info
+[1.278s] running install_scripts
+[1.291s] Installing draw_circle script to /home/alberto/ros2_ws/install/my_robot_controller/lib/my_robot_controller
+[1.292s] Installing pose_subscriber script to /home/alberto/ros2_ws/install/my_robot_controller/lib/my_robot_controller
+[1.292s] Installing test_node script to /home/alberto/ros2_ws/install/my_robot_controller/lib/my_robot_controller
+[1.292s] Installing turtle_controller script to /home/alberto/ros2_ws/install/my_robot_controller/lib/my_robot_controller
+[1.292s] writing list of installed files to '/home/alberto/ros2_ws/build/my_robot_controller/install.log'
+[1.312s] Invoked command in '/home/alberto/ros2_ws/src/my_robot_controller' returned '0': PYTHONPATH=/home/alberto/ros2_ws/build/my_robot_controller/prefix_override:/home/alberto/ros2_ws/install/my_robot_controller/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/my_robot_controller build --build-base /home/alberto/ros2_ws/build/my_robot_controller/build install --record /home/alberto/ros2_ws/build/my_robot_controller/install.log --install-scripts $base/lib/my_robot_controller --single-version-externally-managed
