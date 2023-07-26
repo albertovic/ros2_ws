@@ -335,7 +335,7 @@ ament_xmllint_BIN:FILEPATH=/opt/ros/foxy/bin/ament_xmllint
 articubot_one_BINARY_DIR:STATIC=/home/alberto/ros2_ws/build/articubot_one
 
 //Value Computed by CMake
-articubot_one_SOURCE_DIR:STATIC=/home/alberto/ros2_ws/src/articubot_one-main
+articubot_one_SOURCE_DIR:STATIC=/home/alberto/ros2_ws/src/rona_robot
 
 //Path to a program.
 xmllint_BIN:FILEPATH=/usr/bin/xmllint
@@ -425,7 +425,7 @@ CMAKE_GENERATOR_PLATFORM:INTERNAL=
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
 //Source directory with the top level CMakeLists.txt file for this
 // project
-CMAKE_HOME_DIRECTORY:INTERNAL=/home/alberto/ros2_ws/src/articubot_one-main
+CMAKE_HOME_DIRECTORY:INTERNAL=/home/alberto/ros2_ws/src/rona_robot
 //Install .so files without execute permission.
 CMAKE_INSTALL_SO_NO_EXE:INTERNAL=1
 //ADVANCED property for variable: CMAKE_LINKER

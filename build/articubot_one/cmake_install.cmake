@@ -1,4 +1,4 @@
-# Install script for directory: /home/alberto/ros2_ws/src/articubot_one-main
+# Install script for directory: /home/alberto/ros2_ws/src/rona_robot
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,10 +39,10 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/articubot_one" TYPE DIRECTORY FILES
-    "/home/alberto/ros2_ws/src/articubot_one-main/config"
-    "/home/alberto/ros2_ws/src/articubot_one-main/description"
-    "/home/alberto/ros2_ws/src/articubot_one-main/launch"
-    "/home/alberto/ros2_ws/src/articubot_one-main/worlds"
+    "/home/alberto/ros2_ws/src/rona_robot/config"
+    "/home/alberto/ros2_ws/src/rona_robot/description"
+    "/home/alberto/ros2_ws/src/rona_robot/launch"
+    "/home/alberto/ros2_ws/src/rona_robot/worlds"
     )
 endif()
 
@@ -102,7 +102,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/articubot_one" TYPE FILE FILES "/home/alberto/ros2_ws/src/articubot_one-main/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/articubot_one" TYPE FILE FILES "/home/alberto/ros2_ws/src/rona_robot/package.xml")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

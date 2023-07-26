@@ -44,7 +44,7 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/alberto/ros2_ws/src/articubot_one-main
+CMAKE_SOURCE_DIR = /home/alberto/ros2_ws/src/rona_robot
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/alberto/ros2_ws/build/articubot_one

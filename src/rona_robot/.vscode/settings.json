@@ -1,0 +1,12 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/alberto/ros2_ws/install/my_robot_controller/lib/python3.8/site-packages",
+        "/home/alberto/learning_ws/install/my_fist_pkg/lib/python3.8/site-packages",
+        "/opt/ros/foxy/lib/python3.8/site-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/alberto/ros2_ws/install/my_robot_controller/lib/python3.8/site-packages",
+        "/home/alberto/learning_ws/install/my_fist_pkg/lib/python3.8/site-packages",
+        "/opt/ros/foxy/lib/python3.8/site-packages"
+    ]
+}
