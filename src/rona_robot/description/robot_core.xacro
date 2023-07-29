@@ -3,10 +3,12 @@
 
     <xacro:include filename="inertial_macros.xacro"/>
 
-
+    <!--medidas del chasis-->
     <xacro:property name="chassis_length" value="0.335"/>
     <xacro:property name="chassis_width" value="0.265"/>
     <xacro:property name="chassis_height" value="0.138"/>
+
+
     <xacro:property name="chassis_mass" value="1.0"/>
     <xacro:property name="wheel_radius" value="0.033"/>
     <xacro:property name="wheel_thickness" value="0.026"/>
@@ -62,11 +64,15 @@
     <joint name="chassis_joint" type="fixed">
         <parent link="base_link"/>
         <child link="chassis"/>
+        <!--en este caso el origen está desplazado un offset hacia atrás. Está en la parte trasera-->
         <origin xyz="${-wheel_offset_x} 0 ${-wheel_offset_z}"/>
     </joint>
 
     <link name="chassis">
         <visual>
+            <!--Por defecto, la geometría va a situarse centrada alrededor del origen.-->
+            <!--Para contrarrestar esto, desplazamos la geometría hacia arriba y hacia delante.-->
+            <!--De esta forma, conseguimos que el origen de coordenadas se sitúe en la parte baja trasera del chasis-->
             <origin xyz="${chassis_length/2} 0 ${chassis_height/2}"/>
             <geometry>
                 <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
@@ -90,10 +96,15 @@
 
     <!-- LEFT WHEEL LINK -->
 
+    <!-- Podríamos conectarlo al chasis. Pero en este caso se conecta a la base porque su origen es el centro de rotación de las ruedas-->
     <joint name="left_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="left_wheel"/>
+        <!-- Tenemos que tener en cuenta el offset de la rueda con respecto a la base-->
+        <!-- Además, los cilindros por defecto aparecen verticales, por lo que los tendremos que girar pi/2 para hacer ruedas-->
         <origin xyz="0 ${wheel_offset_y} 0" rpy="-${pi/2} 0 0" />
+        <!-- Especificamos un eje de rotacion. Nos tenemos que preguntar -->
+        <!-- ¿Cuando la rueda tiene un movimiento positivo, en qué dirección está girando? En este caso es positivo alrededor de Z-->
         <axis xyz="0 0 1"/>
     </joint>
 
