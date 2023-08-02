@@ -6,9 +6,13 @@
 
     <!-- MACROS SECTION START-->
     <!-- Chassis measures -->
-    <xacro:property name="chassis_lenght" value="0.297"/>
+    <xacro:property name="chassis_length" value="0.297"/>
     <xacro:property name="chassis_width" value="0.188"/>
     <xacro:property name="chassis_height" value="0.09"/>
+    <!-- En rviz el eje X es el rojo, el Y el verde y el Z el azul -->
+    <xacro:property name="wheel_offset_y" value="${chassis_width/2 + 0.025}"/>
+    <xacro:property name="wheel_offset_x" value="${chassis_length/2 - 0.051}"/>
+    <xacro:property name="wheel_offset_z" value="0.028"/>
 
     <!-- MACROS SECTION END -->
 
@@ -42,7 +46,7 @@
     <link name="base_link">
     </link>
 
-    <!-- Chassis link -->
+    <!-- Chassis -->
     <joint name="chassis_joint" type="fixed">
         <parent link="base_link"/>
         <child link="chassis"/>
@@ -51,21 +55,131 @@
 
     <link name="chassis">
         <visual>
-            <origin xyz="0 0 0"/>
+            <origin xyz="0 0 ${chassis_height/2}"/>
             <geometry>
-                <!--<box size="${chassis_lenght} ${chassis_width} ${chassis_height}"/>-->
-                <box size="0.3 0.3 0.15"/>
+                <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
+                <!-- <box size="0.3 0.3 0.15"/> -->
             </geometry>
+            <material name="blue"/>
         </visual>
         <colission>
-            <origin xyz="0 0 0"/>
+            <origin xyz="0 0 ${chassis_height/2}"/>
             <geometry>
-                <box size="0.3 0.3 0.15"/>
+                <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
             </geometry>
         </colission>
     </link>
+    <gazebo reference="chassis">
+        <material>Gazebo/Blue</material>
+    </gazebo>    
         
+    <!-- Front left wheel -->
 
+    <joint name="front_left_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="front_left_wheel"/>
+        <origin xyz="${wheel_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="-${pi/2} 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name="front_left_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0,0375" length="0,05"/>
+            </geometry>
+            <material name="orange"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0,04" length="0,05"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <gazebo reference="front_left_wheel">
+        <material>Gazebo/Orange</material>
+    </gazebo>   
+
+    <!-- Front right wheel -->
+
+    <joint name="front_right_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="front_right_wheel"/>
+        <origin xyz="${wheel_offset_x} ${-wheel_offset_y} ${wheel_offset_z}" rpy="-${pi/2} 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name="front_right_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0,0375" length="0,05"/>
+            </geometry>
+            <material name="orange"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0,04" length="0,05"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <gazebo reference="front_right_wheel">
+        <material>Gazebo/Orange</material>
+    </gazebo>  
+
+    <!-- Back left wheel -->
+
+    <joint name="back_left_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="back_left_wheel"/>
+        <origin xyz="${-wheel_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="-${pi/2} 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name="back_left_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0,0375" length="0,05"/>
+            </geometry>
+            <material name="orange"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0,04" length="0,05"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <gazebo reference="back_left_wheel">
+        <material>Gazebo/Orange</material>
+    </gazebo>  
+
+    <!-- Back right wheel -->
+
+    <joint name="back_right_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="back_right_wheel"/>
+        <origin xyz="${-wheel_offset_x} ${-wheel_offset_y} ${wheel_offset_z}" rpy="-${pi/2} 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name="back_right_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0,0375" length="0,05"/>
+            </geometry>
+            <material name="orange"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0,04" length="0,05"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <gazebo reference="back_right_wheel">
+        <material>Gazebo/Orange</material>
+    </gazebo>  
    <!-- ROBOT DESCRIPTION END -->
 </robot>
     

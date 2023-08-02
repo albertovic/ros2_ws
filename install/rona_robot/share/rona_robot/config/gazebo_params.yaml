@@ -1,3 +1,1 @@
-gazebo:
-  ros__parameters:
-    publish_rate: 400.0
+/home/alberto/ros2_ws/src/rona_robot/config/gazebo_params.yaml
