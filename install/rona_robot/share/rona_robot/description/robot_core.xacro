@@ -1,1 +1,71 @@
-/home/alberto/ros2_ws/src/rona_robot/description/robot_core.xacro
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+    
+<!-- In this file the basic structure of the omnidirectional robot RONA is described -->
+
+    <!-- MACROS SECTION START-->
+    <!-- Chassis measures -->
+    <xacro:property name="chassis_lenght" value="0.297"/>
+    <xacro:property name="chassis_width" value="0.188"/>
+    <xacro:property name="chassis_height" value="0.09"/>
+
+    <!-- MACROS SECTION END -->
+
+
+    <!-- COLOR DESCRIPTIONS START -->
+    <material name="white">
+        <color rgba="1 1 1 1" />
+    </material>
+
+    <material name="orange">
+        <color rgba="1 0.3 0.1 1" />
+    </material>
+
+    <material name="blue">
+        <color rgba="0.2 0.2 1 1" />
+    </material>
+
+    <material name="black">
+        <color rgba="0 0 0 1" />
+    </material>
+
+    <material name="red">
+        <color rgba="1 0 0 1" />
+    </material>
+    <!-- COLOR DESCRIPTIONS END -->
+
+
+    <!-- ROBOT DESCRIPTION START -->
+
+    <!-- Base link -->
+    <link name="base_link">
+    </link>
+
+    <!-- Chassis link -->
+    <joint name="chassis_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="chassis"/>
+        <origin xyz="0 0 0"/>
+    </joint>
+
+    <link name="chassis">
+        <visual>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <!--<box size="${chassis_lenght} ${chassis_width} ${chassis_height}"/>-->
+                <box size="0.3 0.3 0.15"/>
+            </geometry>
+        </visual>
+        <colission>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <box size="0.3 0.3 0.15"/>
+            </geometry>
+        </colission>
+    </link>
+        
+
+   <!-- ROBOT DESCRIPTION END -->
+</robot>
+    
