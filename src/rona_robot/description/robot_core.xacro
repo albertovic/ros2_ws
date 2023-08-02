@@ -4,17 +4,61 @@
     
 <!-- In this file the basic structure of the omnidirectional robot RONA is described -->
 
-    <!-- MACROS SECTION START-->
+    <!-- MACROS & PROPERTIES SECTION START-->
+
     <!-- Chassis measures -->
     <xacro:property name="chassis_length" value="0.297"/>
     <xacro:property name="chassis_width" value="0.188"/>
     <xacro:property name="chassis_height" value="0.09"/>
     <!-- En rviz el eje X es el rojo, el Y el verde y el Z el azul -->
+
+    <!-- Wheels offsets -->
     <xacro:property name="wheel_offset_y" value="${chassis_width/2 + 0.025}"/>
     <xacro:property name="wheel_offset_x" value="${chassis_length/2 - 0.051}"/>
     <xacro:property name="wheel_offset_z" value="0.028"/>
 
-    <!-- MACROS SECTION END -->
+    <!-- Rollers measures -->
+    <xacro:property name="roller_diameter" value="0.01"/>
+    <xacro:property name="roller_length" value="0.01"/>
+
+    <xacro:macro name="roller" params="prefix suffix theta side">
+        <link name="${prefix}_${suffix}_roller">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
+                <geometry>
+                    <cylinder radius="${roller_diameter}" length="${roller_length}"/>
+                </geometry>
+                <material name="black"/>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
+                <geometry>
+                    <cylinder radius="${roller_diameter}" length="${roller_length}"/>
+                </geometry>
+            </collision>
+            <xacro:roller_inertial mass="0.001"/>
+        </link>
+        <joint name="${prefix}_${suffix}_roller_joint" type="continuous">
+            <axis xyz="1 0 0" />
+            <parent link="${prefix}_wheel"/>
+            <child link="${prefix}_${suffix}_roller"/>
+            <origin xyz="${sin(theta)*roller_radius} ${roller_side_length*side} ${cos(theta)*roller_radius}" rpy="0 ${theta} 0"/>
+            <dynamics damping="0.0001" />
+        </joint>
+
+        <!-- This block provides the simulator (Gazebo) with information on a few additional
+        physical properties. See http://gazebosim.org/tutorials/?tut=ros_urdf for more-->
+        <gazebo reference="${prefix}_${suffix}_roller">
+            <mu1 value="2000.0"/>
+            <mu2 value="1000.0"/>
+            <kp value="10000000.0" />
+            <kd value="1.0" />
+            <material>Gazebo/Grey</material>
+        </gazebo>
+
+    </xacro:macro>
+
+    <!-- MACROS & PROPERTIES SECTION END -->
 
 
     <!-- COLOR DESCRIPTIONS START -->
@@ -46,6 +90,7 @@
     <link name="base_link">
     </link>
 
+
     <!-- Chassis -->
     <joint name="chassis_joint" type="fixed">
         <parent link="base_link"/>
@@ -58,7 +103,6 @@
             <origin xyz="0 0 ${chassis_height/2}"/>
             <geometry>
                 <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
-                <!-- <box size="0.3 0.3 0.15"/> -->
             </geometry>
             <material name="blue"/>
         </visual>
@@ -73,8 +117,8 @@
         <material>Gazebo/Blue</material>
     </gazebo>    
         
-    <!-- Front left wheel -->
 
+    <!-- Front left wheel -->
     <joint name="front_left_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="front_left_wheel"/>
@@ -100,8 +144,8 @@
         <material>Gazebo/Orange</material>
     </gazebo>   
 
-    <!-- Front right wheel -->
 
+    <!-- Front right wheel -->
     <joint name="front_right_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="front_right_wheel"/>
@@ -127,8 +171,8 @@
         <material>Gazebo/Orange</material>
     </gazebo>  
 
-    <!-- Back left wheel -->
 
+    <!-- Back left wheel -->
     <joint name="back_left_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="back_left_wheel"/>
@@ -154,8 +198,8 @@
         <material>Gazebo/Orange</material>
     </gazebo>  
 
-    <!-- Back right wheel -->
 
+    <!-- Back right wheel -->
     <joint name="back_right_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="back_right_wheel"/>
@@ -180,6 +224,8 @@
     <gazebo reference="back_right_wheel">
         <material>Gazebo/Orange</material>
     </gazebo>  
+
    <!-- ROBOT DESCRIPTION END -->
+
 </robot>
     
