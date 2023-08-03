@@ -63,9 +63,9 @@
                 <material name="black"/>
             </visual>
             <collision>
-                <origin xyz="0 0 0" rpy="0 ${pi/4} 0" />
+                <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
-                    <cylinder radius="0,01" length="0,032"/>
+                    <cylinder radius="0,0082" length="0,045"/>
                 </geometry>
             </collision>
             <!-- <xacro:roller_inertial mass="0.001"/> -->
@@ -108,7 +108,7 @@
         </link>
 
         <joint name="${prefix}_${suffix}_wheel_joint" type="continuous">
-            <parent link="base_link"/>
+            <parent link="chassis"/>
             <child link="${prefix}_${suffix}_wheel"/>
             <origin xyz="${offset_x} ${offset_y} ${offset_z}" rpy="-${pi/2} 0 0"/>
             <axis xyz="0 0 1"/>
@@ -135,10 +135,11 @@
     <joint name="chassis_joint" type="fixed">
         <parent link="base_link"/>
         <child link="chassis"/>
-        <origin xyz="0 0 0"/>
+        <origin xyz="0 0 0.022"/>
     </joint>
 
     <link name="chassis">
+
         <visual>
             <origin xyz="0 0 ${chassis_height/2}"/>
             <geometry>
@@ -146,13 +147,16 @@
             </geometry>
             <material name="blue"/>
         </visual>
+
         <colission>
             <origin xyz="0 0 ${chassis_height/2}"/>
             <geometry>
                 <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
             </geometry>
         </colission>
+
     </link>
+
     <gazebo reference="chassis">
         <material>Gazebo/Blue</material>
     </gazebo>    
