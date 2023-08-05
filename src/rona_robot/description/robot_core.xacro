@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
-    
+
 <!-- In this file the basic structure of the omnidirectional robot RONA is described -->
 
+    <xacro:include filename="inertial_macros.xacro"/>
     <!-- COLOR DESCRIPTIONS START -->
     <material name="white">
         <color rgba="1 1 1 1" />
@@ -68,10 +69,12 @@
                     <cylinder radius="0,0082" length="0,045"/>
                 </geometry>
             </collision>
-            <!-- <xacro:roller_inertial mass="0.001"/> -->
+            <xacro:inertial_cylinder mass="0.001" length="0.045" radius="0.0082">
+                <origen xyz="0 0 0" rpy="0 0 0"/>
+            </xacro:inertial_cylinder>
         </link>
         <joint name="${prefix}_${suffix}_roller_joint" type="continuous">
-            <axis xyz="1 0 0" />
+            <axis xyz="0 0 1" />
             <parent link="${prefix}_wheel"/>
             <child link="${prefix}_${suffix}_roller"/>
             <origin xyz="${cos(theta)*wheel_radius} ${sin(theta)*wheel_radius} 0" rpy="0 ${roller_orientation} ${(pi/2)+theta}"/>
@@ -154,6 +157,9 @@
                 <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
             </geometry>
         </colission>
+        <xacro:inertial_box mass="3" x="${chassis_length}" y="${chassis_width}" z="${chassis_height}">
+            <origin xyz="0 0 ${chassis_length}" rpy="0 0 0"/>
+        </xacro:inertial_box>
 
     </link>
 
