@@ -78,16 +78,11 @@
             <parent link="${prefix}_wheel"/>
             <child link="${prefix}_${suffix}_roller"/>
             <origin xyz="${cos(theta)*wheel_radius} ${sin(theta)*wheel_radius} 0" rpy="0 ${roller_orientation} ${(pi/2)+theta}"/>
-            <dynamics damping="0.0001" />
         </joint>
 
         <!-- This block provides the simulator (Gazebo) with information on a few additional
         physical properties. See http://gazebosim.org/tutorials/?tut=ros_urdf for more-->
         <gazebo reference="${prefix}_${suffix}_roller">
-            <mu1 value="2000.0"/>
-            <mu2 value="1000.0"/>
-            <kp value="10000000.0" />
-            <kd value="1.0" />
             <material>Gazebo/Grey</material>
         </gazebo>
     </xacro:macro>
@@ -117,7 +112,7 @@
             <axis xyz="0 0 1"/>
         </joint>
 
-        <gazebo reference="front_left_wheel">
+        <gazebo reference="${prefix}_${suffix}_wheel">
             <material>Gazebo/Orange</material>
         </gazebo>   
 
@@ -135,14 +130,7 @@
     </xacro:macro>
 
     <!-- Chassis -->
-    <joint name="chassis_joint" type="fixed">
-        <parent link="base_link"/>
-        <child link="chassis"/>
-        <origin xyz="0 0 0.022"/>
-    </joint>
-
     <link name="chassis">
-
         <visual>
             <origin xyz="0 0 ${chassis_height/2}"/>
             <geometry>
@@ -157,11 +145,18 @@
                 <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
             </geometry>
         </colission>
+        
         <xacro:inertial_box mass="3" x="${chassis_length}" y="${chassis_width}" z="${chassis_height}">
             <origin xyz="0 0 ${chassis_length}" rpy="0 0 0"/>
         </xacro:inertial_box>
 
     </link>
+
+    <joint name="chassis_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="chassis"/>
+        <origin xyz="0 0 0.022"/>
+    </joint>
 
     <gazebo reference="chassis">
         <material>Gazebo/Blue</material>
