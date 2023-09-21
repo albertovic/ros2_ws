@@ -2,132 +2,18 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
 
-<!-- In this file the basic structure of the omnidirectional robot RONA is described -->
+    <!-- In this file the basic structure of the omnidirectional robot RONA is described -->
 
     <xacro:include filename="inertial_macros.xacro"/>
-    <!-- COLOR DESCRIPTIONS START -->
-    <material name="white">
-        <color rgba="1 1 1 1" />
-    </material>
-
-    <material name="orange">
-        <color rgba="1 0.3 0.1 1" />
-    </material>
-
-    <material name="blue">
-        <color rgba="0.2 0.2 1 1" />
-    </material>
-
-    <material name="black">
-        <color rgba="0 0 0 1" />
-    </material>
-
-    <material name="red">
-        <color rgba="1 0 0 1" />
-    </material>
-    <!-- COLOR DESCRIPTIONS END -->
-
-    <!-- PROPERTIES SECTION START-->
-
-    <!-- Chassis measures -->
-    <xacro:property name="chassis_length" value="0.297"/>
-    <xacro:property name="chassis_width" value="0.188"/>
-    <xacro:property name="chassis_height" value="0.09"/>
-    <!-- En rviz el eje X es el rojo, el Y el verde y el Z el azul -->
-
-    <!-- Wheels parameters -->
-    <xacro:property name="wheel_offset_y" value="${chassis_width/2 + 0.025}"/>
-    <xacro:property name="wheel_offset_x" value="${chassis_length/2 - 0.051}"/>
-    <xacro:property name="wheel_offset_z" value="0.028"/>
-    <xacro:property name="wheel_radius" value="0.0375"/>
-
-    <!-- Rollers measures -->
-    <xacro:property name="roller_diameter" value="0.01"/>
-    <xacro:property name="roller_length" value="0.01"/>
-
-    <!-- PROPERTIES SECTION END -->
-
+    <xacro:include filename="macros.xacro"/>
+    <xacro:include filename="colors.xacro"/>
+    <xacro:include filename="physical_properties.xacro"/>
 
     <!-- ROBOT DESCRIPTION START -->
 
     <!-- Base link -->
     <link name="base_link">
     </link>
-
-    <xacro:macro name="roller" params="prefix suffix theta roller_orientation">
-        <link name="${prefix}_${suffix}_roller">
-            <visual>
-                <origin xyz="0 0 0" rpy="0 0 0" />
-                <geometry>
-                    <cylinder radius="0,0082" length="0,045"/>
-                </geometry>
-                <material name="black"/>
-            </visual>
-            <collision>
-                <origin xyz="0 0 0" rpy="0 0 0" />
-                <geometry>
-                    <cylinder radius="0,0082" length="0,045"/>
-                </geometry>
-            </collision>
-            <xacro:inertial_cylinder mass="0.001" length="0.045" radius="0.0082">
-                <origen xyz="0 0 0" rpy="0 0 0"/>
-            </xacro:inertial_cylinder>
-        </link>
-        <joint name="${prefix}_${suffix}_roller_joint" type="continuous">
-            <axis xyz="0 0 1" />
-            <parent link="${prefix}_wheel"/>
-            <child link="${prefix}_${suffix}_roller"/>
-            <origin xyz="${cos(theta)*wheel_radius} ${sin(theta)*wheel_radius} 0" rpy="0 ${roller_orientation} ${(pi/2)+theta}"/>
-        </joint>
-
-        <!-- This block provides the simulator (Gazebo) with information on a few additional
-        physical properties. See http://gazebosim.org/tutorials/?tut=ros_urdf for more-->
-        <gazebo reference="${prefix}_${suffix}_roller">
-            <material>Gazebo/Grey</material>
-        </gazebo>
-    </xacro:macro>
-
-    <xacro:macro name="wheel" params="prefix suffix radius length mass offset_x offset_y offset_z wheel_roller_orientation">
-        <link name="${prefix}_${suffix}_wheel">
-            <visual>
-                <origin xyz="0 0 0" rpy="0 0 0"/>
-                <geometry>
-                    <cylinder radius="${radius}" length="${length}"/>
-                </geometry>
-                <material name="orange"/>
-            </visual>
-            <collision>
-                <origin xyz="0 0 0" rpy="0 0 0"/>
-                <geometry>
-                    <cylinder radius="${radius}" length="${length}"/>
-                </geometry>
-            </collision>
-            <!-- <xacro:roller_inertial mass="${mass}"/>     -->
-        </link>
-
-        <joint name="${prefix}_${suffix}_wheel_joint" type="continuous">
-            <parent link="chassis"/>
-            <child link="${prefix}_${suffix}_wheel"/>
-            <origin xyz="${offset_x} ${offset_y} ${offset_z}" rpy="-${pi/2} 0 0"/>
-            <axis xyz="0 0 1"/>
-        </joint>
-
-        <gazebo reference="${prefix}_${suffix}_wheel">
-            <material>Gazebo/Orange</material>
-        </gazebo>   
-
-        <xacro:roller prefix="${prefix}_${suffix}" suffix="one" theta="${2*pi*(1/10)}" roller_orientation="${wheel_roller_orientation}"/>
-        <xacro:roller prefix="${prefix}_${suffix}" suffix="two" theta="${2*pi*(2/10)}" roller_orientation="${wheel_roller_orientation}"/>
-        <xacro:roller prefix="${prefix}_${suffix}" suffix="thr" theta="${2*pi*(3/10)}" roller_orientation="${wheel_roller_orientation}"/>
-        <xacro:roller prefix="${prefix}_${suffix}" suffix="for" theta="${2*pi*(4/10)}" roller_orientation="${wheel_roller_orientation}"/>
-        <xacro:roller prefix="${prefix}_${suffix}" suffix="fve" theta="${2*pi*(5/10)}" roller_orientation="${wheel_roller_orientation}"/>
-        <xacro:roller prefix="${prefix}_${suffix}" suffix="six" theta="${2*pi*(6/10)}" roller_orientation="${wheel_roller_orientation}"/>
-        <xacro:roller prefix="${prefix}_${suffix}" suffix="svn" theta="${2*pi*(7/10)}" roller_orientation="${wheel_roller_orientation}"/>
-        <xacro:roller prefix="${prefix}_${suffix}" suffix="ate" theta="${2*pi*(8/10)}" roller_orientation="${wheel_roller_orientation}"/>
-        <xacro:roller prefix="${prefix}_${suffix}" suffix="nne" theta="${2*pi*(9/10)}" roller_orientation="${wheel_roller_orientation}"/>
-        <xacro:roller prefix="${prefix}_${suffix}" suffix="ten" theta="${2*pi*(10/10)}" roller_orientation="${wheel_roller_orientation}"/>
-
-    </xacro:macro>
 
     <!-- Chassis -->
     <link name="chassis">
@@ -139,12 +25,13 @@
             <material name="blue"/>
         </visual>
 
-        <colission>
+        <collision>
             <origin xyz="0 0 ${chassis_height/2}"/>
             <geometry>
-                <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
+                <box size="0.297 0.188 0.09"/>
             </geometry>
-        </colission>
+            <material name="blue"/>
+        </collision>        
         
         <xacro:inertial_box mass="3" x="${chassis_length}" y="${chassis_width}" z="${chassis_height}">
             <origin xyz="0 0 ${chassis_length}" rpy="0 0 0"/>
@@ -174,7 +61,13 @@
     
     <!-- Back right wheel -->
     <xacro:wheel prefix="back" suffix="right" radius="0,0375" length="0,05" mass="0.4" offset_x="${-wheel_offset_x}" offset_y="${-wheel_offset_y}" offset_z="${wheel_offset_z}" wheel_roller_orientation="${pi/4}"/>
-   <!-- ROBOT DESCRIPTION END -->
+   
+    <!-- ROBOT DESCRIPTION END -->
+
+    <gazebo reference="front_left_wheel">
+        <material>Gazebo/Orange</material>
+    </gazebo>   
+    
 
 </robot>
     

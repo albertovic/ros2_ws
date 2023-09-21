@@ -13,11 +13,14 @@
 /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/config/twist_mux.yaml
 /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/config/view_bot.rviz
 /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/camera.xacro
+/home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/colors.xacro
 /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/depth_camera.xacro
 /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/face.xacro
 /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/gazebo_control.xacro
 /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/inertial_macros.xacro
 /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/lidar.xacro
+/home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/macros.xacro
+/home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/physical_properties.xacro
 /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/robot.urdf.xacro
 /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/robot_core.xacro
 /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/robot_core_initial.xacro

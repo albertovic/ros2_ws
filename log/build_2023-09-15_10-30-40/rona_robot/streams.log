@@ -1,0 +1,81 @@
+[0.251s] Invoking command in '/home/alberto/ros2_ws/build/rona_robot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alberto/ros2_ws/install/my_robot_controller:/home/alberto/learning_ws/install/my_fist_pkg:/opt/ros/foxy /usr/bin/cmake /home/alberto/ros2_ws/src/rona_robot -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/alberto/ros2_ws/install/rona_robot
+[0.283s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.312s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.496s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.515s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[0.581s] -- Added test 'copyright' to check source files copyright and LICENSE
+[0.590s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[0.590s] -- Configured cppcheck include dirs: 
+[0.590s] -- Configured cppcheck exclude dirs and/or files: 
+[0.600s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[0.600s] -- Configured cpplint exclude dirs and/or files: 
+[0.601s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.604s] -- Added test 'lint_cmake' to check CMake code style
+[0.605s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[0.615s] -- Added test 'uncrustify' to check C / C++ code style
+[0.615s] -- Configured uncrustify additional arguments: 
+[0.617s] -- Added test 'xmllint' to check XML markup files
+[0.623s] -- Configuring done
+[0.632s] -- Generating done
+[0.634s] -- Build files have been written to: /home/alberto/ros2_ws/build/rona_robot
+[0.638s] Invoked command in '/home/alberto/ros2_ws/build/rona_robot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alberto/ros2_ws/install/my_robot_controller:/home/alberto/learning_ws/install/my_fist_pkg:/opt/ros/foxy /usr/bin/cmake /home/alberto/ros2_ws/src/rona_robot -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/alberto/ros2_ws/install/rona_robot
+[0.642s] Invoking command in '/home/alberto/ros2_ws/build/rona_robot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alberto/ros2_ws/install/my_robot_controller:/home/alberto/learning_ws/install/my_fist_pkg:/opt/ros/foxy /usr/bin/cmake --build /home/alberto/ros2_ws/build/rona_robot -- -j8 -l8
+[0.705s] Invoked command in '/home/alberto/ros2_ws/build/rona_robot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alberto/ros2_ws/install/my_robot_controller:/home/alberto/learning_ws/install/my_fist_pkg:/opt/ros/foxy /usr/bin/cmake --build /home/alberto/ros2_ws/build/rona_robot -- -j8 -l8
+[0.740s] Invoking command in '/home/alberto/ros2_ws/build/rona_robot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alberto/ros2_ws/install/my_robot_controller:/home/alberto/learning_ws/install/my_fist_pkg:/opt/ros/foxy /usr/bin/cmake --install /home/alberto/ros2_ws/build/rona_robot
+[0.748s] -- Install configuration: ""
+[0.749s] -- Execute custom install script
+[0.749s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/config/ball_tracker_params_robot.yaml
+[0.750s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/config/ball_tracker_params_sim.yaml
+[0.750s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/config/drive_bot.rviz
+[0.750s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/config/empty.yaml
+[0.750s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/config/gaz_ros2_ctl_use_sim.yaml
+[0.750s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/config/gazebo_params.yaml
+[0.750s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/config/joystick.yaml
+[0.751s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/config/main.rviz
+[0.751s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/config/map.rviz
+[0.751s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/config/mapper_params_online_async.yaml
+[0.751s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/config/my_controllers.yaml
+[0.751s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/config/nav2_params.yaml
+[0.752s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/config/twist_mux.yaml
+[0.752s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/config/view_bot.rviz
+[0.752s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/camera.xacro
+[0.752s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/colors.xacro
+[0.753s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/depth_camera.xacro
+[0.753s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/face.xacro
+[0.753s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/gazebo_control.xacro
+[0.753s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/inertial_macros.xacro
+[0.753s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/lidar.xacro
+[0.754s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/macros.xacro
+[0.754s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/physical_properties.xacro
+[0.754s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/robot.urdf.xacro
+[0.754s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/robot_core.xacro
+[0.754s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/robot_core_initial.xacro
+[0.755s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/description/ros2_control.xacro
+[0.755s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/launch/ball_tracker.launch.py
+[0.755s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/launch/camera.launch.py
+[0.756s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/launch/joystick.launch.py
+[0.756s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/launch/launch_robot.launch.py
+[0.756s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/launch/launch_sim.launch.py
+[0.756s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/launch/localization_launch.py
+[0.756s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/launch/navigation_launch.py
+[0.756s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/launch/online_async_launch.py
+[0.757s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/launch/rplidar.launch.py
+[0.757s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/launch/rsp.launch.py
+[0.757s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/worlds/empty.world
+[0.758s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/worlds/obstacles.world
+[0.758s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/ament_index/resource_index/package_run_dependencies/rona_robot
+[0.758s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/ament_index/resource_index/parent_prefix_path/rona_robot
+[0.759s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/environment/ament_prefix_path.sh
+[0.759s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/environment/ament_prefix_path.dsv
+[0.759s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/environment/path.sh
+[0.760s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/environment/path.dsv
+[0.760s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/local_setup.bash
+[0.760s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/local_setup.sh
+[0.760s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/local_setup.zsh
+[0.761s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/local_setup.dsv
+[0.761s] -- Symlinking: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/package.dsv
+[0.770s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/ament_index/resource_index/packages/rona_robot
+[0.770s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/cmake/rona_robotConfig.cmake
+[0.770s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/cmake/rona_robotConfig-version.cmake
+[0.770s] -- Up-to-date symlink: /home/alberto/ros2_ws/install/rona_robot/share/rona_robot/package.xml
+[0.772s] Invoked command in '/home/alberto/ros2_ws/build/rona_robot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alberto/ros2_ws/install/my_robot_controller:/home/alberto/learning_ws/install/my_fist_pkg:/opt/ros/foxy /usr/bin/cmake --install /home/alberto/ros2_ws/build/rona_robot
