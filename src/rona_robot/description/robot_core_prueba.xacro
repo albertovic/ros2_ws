@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+    <xacro:include filename="colors.xacro"/>
+
+    <link name="base_link">
+    </link>
+
+    <gazebo reference="base_link"/>
+
+    <link name="shoulder">
+        <visual>
+            <origin xyx="0 0 0,25"/>
+            <geometry>
+                <cylinder radius="0,5" length="0,5"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        
+        <collision>
+            <origin xyx="0 0 0,25"/>
+            <geometry>
+                <cylinder radius="0,5" length="0,5"/>
+            </geometry>
+        </collision>            
+    </link>
+
+    <gazebo reference="shoulder">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <joint name="shoulder_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="shoulder"/>
+        <origin xyz="0 0 0.25" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <gazebo reference="shoulder_joint">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+</robot>
