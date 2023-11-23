@@ -1,1 +1,0 @@
-/home/alberto/ros2_ws/build/rona_robot/ament_cmake_core/rona_robotConfig.cmake

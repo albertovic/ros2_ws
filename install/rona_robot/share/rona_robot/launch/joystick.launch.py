@@ -1,1 +1,0 @@
-/home/alberto/ros2_ws/src/rona_robot/launch/joystick.launch.py
