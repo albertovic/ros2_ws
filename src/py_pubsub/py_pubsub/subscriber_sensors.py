@@ -1,6 +1,6 @@
 import rclpy
 from rclpy.node import Node
-from tutorial_interfaces.msg import Num
+from tutorial_interfaces.msg import Sensors
 import logging
 import argparse
 
@@ -8,11 +8,13 @@ class MinimalSubscriber(Node):
     #In this innit function, a path for the logger file is shared
     def __init__(self, file_path):
         super().__init__('minimal_subscriber')
+
         self.subscription = self.create_subscription(
-            Num,
+            Sensors,
             'topic',
             self.listener_callback, #this function will always be called with the message as an argument
             10)
+        
         self.subscription #prevent unussed variable warning
 
         #We create a self.f so that other functions can use this variable, and open it in writing text mode
@@ -21,8 +23,11 @@ class MinimalSubscriber(Node):
         #print(file_path)
 
     def listener_callback(self, msg):
-        self.get_logger().info('I heard: "%d"' % msg.num)
-        self.f.write('I heard: "%d"' % msg.num + "\n")
+        self.get_logger().info('I heard: \n Inner temperature: %f\n Temperature: %f\n Pressure: %f\n Temp_Pressure: %f\n Distance: %s\n Confidence: %s\n' % (msg.in_temp, msg.temp_temp, msg.press, msg.press_temp, msg.distance, msg.confidence))
+        try:
+            self.f.write('I heard: \n Inner temperature: %f\n Temperature: %f\n Pressure: %f\n Temp_Pressure: %f\n Distance: %s\n Confidence: %s\n\n\n' % (msg.in_temp, msg.temp_temp, msg.press, msg.press_temp, msg.distance, msg.confidence))
+        except Exception as e:
+            self.get_logger().error(f"Error writing to file: {e}")
 
 #This function takes the arguments the script is called with and returns them
 def parse_args():
@@ -40,7 +45,6 @@ def main(args=None):
 
     #After selecting the needed arguments, they are passed to the Node constructor. This way, the file is opened in the __init__ function
     minimal_subscriber = MinimalSubscriber(logging_file_path)
-
     rclpy.spin(minimal_subscriber)
     minimal_subscriber.destroy_node()
     rclpy.shutdown()
