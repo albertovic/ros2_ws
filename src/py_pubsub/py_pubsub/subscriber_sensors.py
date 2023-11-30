@@ -7,11 +7,11 @@ import argparse
 class MinimalSubscriber(Node):
     #In this innit function, a path for the logger file is shared
     def __init__(self, file_path):
-        super().__init__('minimal_subscriber')
+        super().__init__('sensors_msubscriber')
 
         self.subscription = self.create_subscription(
             Sensors,
-            'topic',
+            'sensors_info',
             self.listener_callback, #this function will always be called with the message as an argument
             10)
         
