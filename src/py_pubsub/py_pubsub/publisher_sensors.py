@@ -68,7 +68,6 @@ class MinimalPublisher(Node):
             msg.press_temp = self.press_sensor.temperature()
             msg.press = self.press_sensor.pressure()
 
-
         #Echosounder sensor reading
         data = self.echo_sensor.get_distance()
         if data:
