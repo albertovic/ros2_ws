@@ -15,7 +15,7 @@ Este paquete lo he utilizado para hacer pruebas sobre publicadores y suscriptore
 
   El publicador se llama con:
   ```ruby
-  ros2 run py_pubsub talker>
+  ros2 run py_pubsub talker
   ```
   y el subscriptor con:
   ```ruby
@@ -23,17 +23,17 @@ Este paquete lo he utilizado para hacer pruebas sobre publicadores y suscriptore
   ```
   
 - La segunda compila pero falta por probarla con los sensores físicos. Esta sí recoge la información de los sensores reales y la manda con un mensaje personalizado. Está hecho para que funcione con los sensores de mi TFG.
-El prublicador se llama con:
-```ruby
-ros2 run py_pubsub publisher_sensors
-```
-añadiendo los flags necesarios con la dirección del archivo de lectura de los datos del echosounder --device AMA...
+  El prublicador se llama con:
+  ```ruby
+  ros2 run py_pubsub publisher_sensors
+  ```
+  añadiendo los flags necesarios con la dirección del archivo de lectura de los datos del echosounder --device AMA...
 
-y el subscriptor con:
-```ruby
-ros2 run py_pubsub subscriber_sensors -f file.log
-```
-En este caso se indica el path del archivo en el que se quiere que se guarde la información leída.
+  y el subscriptor con:
+  ```ruby
+  ros2 run py_pubsub subscriber_sensors -f file.log
+  ```
+  En este caso se indica el path del archivo en el que se quiere que se guarde la información leída.
        
 ## tutorial_interfaces
 Este paquete contiene la información de los mensajes personalizados mencionados en py_pubsub.
