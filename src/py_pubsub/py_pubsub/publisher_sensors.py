@@ -1,12 +1,11 @@
 #IMPORTS BEGIN
 #-------------------------------
 #Imports for temperature sensor
-import os
-import tsys01
+from sensors_modules import tsys01
 
 #Imports for pressure sensor
 #import sensor_codes.multiple_sensors_pkg.examples.ms5837 as ms5837
-import ms5837
+from sensors_modules import ms5837
 #Imports for echosounder sensor (altimeter)
 from brping import Ping1D
 
@@ -43,7 +42,6 @@ class MinimalPublisher(Node):
     def timer_callback(self):
 
         msg = Sensors()
-        msg.in_temp = float(self.i + 1)
 
         #Opens the file containing the temperature
         f = open('/sys/class/thermal/thermal_zone0/temp', 'r')

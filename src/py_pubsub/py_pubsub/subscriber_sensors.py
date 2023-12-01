@@ -1,7 +1,7 @@
 import rclpy
 from rclpy.node import Node
 from tutorial_interfaces.msg import Sensors
-import logging
+
 import argparse
 
 class MinimalSubscriber(Node):
