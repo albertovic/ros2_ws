@@ -1,7 +1,6 @@
 #IMPORTS BEGIN
 #-------------------------------
 #Imports for temperature sensor
-import os
 import tsys01
 
 #Imports for pressure sensor
@@ -43,7 +42,6 @@ class MinimalPublisher(Node):
     def timer_callback(self):
 
         msg = Sensors()
-        msg.in_temp = float(self.i + 1)
 
         #Opens the file containing the temperature
         f = open('/sys/class/thermal/thermal_zone0/temp', 'r')
