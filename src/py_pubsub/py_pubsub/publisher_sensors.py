@@ -1,11 +1,11 @@
 #IMPORTS BEGIN
 #-------------------------------
 #Imports for temperature sensor
-import tsys01
+from sensors_modules import tsys01
 
 #Imports for pressure sensor
 #import sensor_codes.multiple_sensors_pkg.examples.ms5837 as ms5837
-import ms5837
+from sensors_modules import ms5837
 #Imports for echosounder sensor (altimeter)
 from brping import Ping1D
 

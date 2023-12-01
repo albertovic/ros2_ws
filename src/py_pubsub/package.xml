@@ -17,5 +17,6 @@
     <exec_depend>rclpy</exec_depend>
     <exec_depend>std_msgs</exec_depend>
     <exec_depend>tutorial_interfaces</exec_depend>
+    <exec_depend>sensors_modules</exec_depend>
   </export>
 </package>
