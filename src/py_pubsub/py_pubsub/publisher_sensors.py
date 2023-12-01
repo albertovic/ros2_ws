@@ -9,6 +9,12 @@ from sensors_modules import ms5837
 #Imports for echosounder sensor (altimeter)
 from brping import Ping1D
 
+#Sometimes these commands are needed
+# pip uninstall bluerobotics-ping
+# pip install bluerobotics-ping
+
+
+
 #Common imports
 import rclpy
 from rclpy.node import Node
