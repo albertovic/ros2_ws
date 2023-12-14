@@ -14,7 +14,7 @@
     <xacro:property name="wheel_radius" value="0.0375"/>
 
     <!-- Rollers measures -->
-    <xacro:property name="roller_diameter" value="0,01"/>
-    <xacro:property name="roller_length" value="0,01"/>
+    <xacro:property name="roller_diameter" value="0.01"/>
+    <xacro:property name="roller_length" value="0.01"/>
     
 </robot>
