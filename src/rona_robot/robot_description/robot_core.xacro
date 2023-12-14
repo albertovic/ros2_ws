@@ -5,8 +5,10 @@
     <!-- In this file the basic structure of the omnidirectional robot RONA is described -->
 
     <xacro:include filename="inertial_macros.xacro"/>
-    <xacro:include filename="roller.xacro"/>
-    <xacro:include filename="wheel.xacro" />
+    <xacro:include filename="front_left_wheel.xacro"/>
+    <xacro:include filename="front_right_wheel.xacro"/>
+    <xacro:include filename="rear_left_wheel.xacro"/>
+    <xacro:include filename="rear_right_wheel.xacro"/>
     <xacro:include filename="colors.xacro"/>
     <xacro:include filename="physical_properties.xacro"/>
 
@@ -52,16 +54,16 @@
         
 
     <!-- Front left wheel -->
-    <xacro:wheel prefix="front" suffix="left" radius="0.0375" length="0.05" mass="0.4" offset_x="${wheel_offset_x}" offset_y="${wheel_offset_y}" offset_z="${wheel_offset_z}" wheel_roller_orientation="${pi/4}"/>
+    <xacro:front_left_wheel/>
 
     <!-- Front right wheel -->
-    <xacro:wheel prefix="front" suffix="right" radius="0.0375" length="0.05" mass="0.4" offset_x="${wheel_offset_x}" offset_y="${-wheel_offset_y}" offset_z="${wheel_offset_z}" wheel_roller_orientation="${-pi/4}"/>
+    <xacro:front_right_wheel/>
 
-    <!-- Back left wheel -->
-    <xacro:wheel prefix="back" suffix="left" radius="0.0375" length="0.05" mass="0.4" offset_x="${-wheel_offset_x}" offset_y="${wheel_offset_y}" offset_z="${wheel_offset_z}" wheel_roller_orientation="${-pi/4}"/>
+    <!-- Rear left wheel -->
+    <xacro:rear_left_wheel/>
     
-    <!-- Back right wheel -->
-    <xacro:wheel prefix="back" suffix="right" radius="0.0375" length="0.05" mass="0.4" offset_x="${-wheel_offset_x}" offset_y="${-wheel_offset_y}" offset_z="${wheel_offset_z}" wheel_roller_orientation="${pi/4}"/>
+    <!-- Rear right wheel -->
+    <xacro:rear_right_wheel/>
    
     <!-- ROBOT DESCRIPTION END -->    
 
