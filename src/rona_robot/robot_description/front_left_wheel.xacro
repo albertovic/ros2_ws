@@ -6,6 +6,8 @@
     <xacro:macro name="front_left_wheel">
         <link name="front_left_wheel">
             <visual>
+                <!-- En rviz el eje X es el rojo, el Y el verde y el Z el azul -->
+                <!-- Necesito seguir ajustando más fino basándome en el cilindro de colisiones -->
                 <origin xyz="0.2543 -0.02958 -0.169" rpy="-${pi/2} 0 0"/>
                 <geometry>
                     <mesh scale="0.001 0.001 0.001" filename="package://rona_robot/meshes/front_left_wheel.stl"/>
