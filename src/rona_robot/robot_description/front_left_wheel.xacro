@@ -4,7 +4,17 @@
     <xacro:include filename="inertial_macros.xacro"/>
 
     <xacro:macro name="front_left_wheel">
+
         <link name="front_left_wheel">
+
+            <inertial>
+                <origin xyz = "0 0 0"/>
+                <mass value="0.4"/>
+                <inertia ixx="0.000239" ixy="0.0" ixz="0.0"
+                        iyy="0.000239" iyz="0.0"
+                        izz="0.000044" />
+            </inertial>
+
             <visual>
                 <!-- En rviz el eje X es el rojo, el Y el verde y el Z el azul -->
                 <!-- Necesito seguir ajustando más fino basándome en el cilindro de colisiones -->
@@ -13,6 +23,7 @@
                     <mesh scale="0.001 0.001 0.001" filename="package://rona_robot/meshes/front_left_wheel.stl"/>
                 </geometry>
             </visual>
+
             <collision>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <geometry>

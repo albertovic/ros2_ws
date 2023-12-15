@@ -1,16 +1,17 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="rona">
 
 
     <!-- In this file the basic structure of the omnidirectional robot RONA is described -->
 
-    <xacro:include filename="inertial_macros.xacro"/>
-    <xacro:include filename="front_left_wheel.xacro"/>
-    <xacro:include filename="front_right_wheel.xacro"/>
-    <xacro:include filename="rear_left_wheel.xacro"/>
-    <xacro:include filename="rear_right_wheel.xacro"/>
-    <xacro:include filename="colors.xacro"/>
-    <xacro:include filename="physical_properties.xacro"/>
+    <xacro:include filename="$(find rona_robot)/robot_description/inertial_macros.xacro"/>
+    <xacro:include filename="$(find rona_robot)/robot_description/front_left_wheel.xacro"/>
+    <xacro:include filename="$(find rona_robot)/robot_description/front_right_wheel.xacro"/>
+    <xacro:include filename="$(find rona_robot)/robot_description/rear_left_wheel.xacro"/>
+    <xacro:include filename="$(find rona_robot)/robot_description/rear_right_wheel.xacro"/>
+    <xacro:include filename="$(find rona_robot)/robot_description/colors.xacro"/>
+    <xacro:include filename="$(find rona_robot)/robot_description/physical_properties.xacro"/>
+    <xacro:include filename="$(find rona_robot)/robot_description/rona_gazebo.xacro"/>
 
     <!-- ROBOT DESCRIPTION START -->
 
