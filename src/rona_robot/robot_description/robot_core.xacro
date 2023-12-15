@@ -57,13 +57,13 @@
     <xacro:front_left_wheel/>
 
     <!-- Front right wheel -->
-    <!-- <xacro:front_right_wheel/> -->
+    <xacro:front_right_wheel/>
 
     <!-- Rear left wheel -->
-    <!-- <xacro:rear_left_wheel/> -->
+    <xacro:rear_left_wheel/>
     
     <!-- Rear right wheel -->
-    <!-- <xacro:rear_right_wheel/> -->
+    <xacro:rear_right_wheel/>
    
     <!-- ROBOT DESCRIPTION END -->    
 

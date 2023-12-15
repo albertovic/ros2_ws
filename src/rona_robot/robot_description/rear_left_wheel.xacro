@@ -6,7 +6,7 @@
     <xacro:macro name="rear_left_wheel">
         <link name="rear_left_wheel">
             <visual>
-                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <origin xyz="0.0451 -0.03 -0.1691" rpy="-${pi/2} 0 0"/>
                 <geometry>
                     <mesh scale="0.001 0.001 0.001" filename="package://rona_robot/meshes/rear_left_wheel.stl"/>
                 </geometry>
