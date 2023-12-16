@@ -12,7 +12,7 @@ def generate_launch_description():
 
     model_arg = DeclareLaunchArgument(
         name="model",
-        default_value=os.path.join(get_package_share_directory("rona_robot"), "robot_description", "robot_core.xacro"),
+        default_value=os.path.join(get_package_share_directory("rona_robot"), "complex_description", "robot_core.xacro"),
         description="Absolute path to robot URDF file"
     )
 

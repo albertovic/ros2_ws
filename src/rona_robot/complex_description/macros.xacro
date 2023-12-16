@@ -8,19 +8,24 @@
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
-                    <cylinder radius="0,0082" length="0,045"/>
+                    <cylinder radius="0.0082" length="0.045"/>
                 </geometry>
                 <material name="black"/>
             </visual>
             <collision>
                 <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
-                    <cylinder radius="0,0082" length="0,045"/>
+                    <cylinder radius="0.0082" length="0.045"/>
                 </geometry>
             </collision>
-            <xacro:inertial_cylinder mass="0.001" length="0.045" radius="0.0082">
-                <origen xyz="0 0 0" rpy="0 0 0"/>
-            </xacro:inertial_cylinder>
+
+            <inertial>
+                <origin xyz="0 0 0"/>
+                <mass value="0.001" />
+                <inertia ixx="8.72e-8" ixy="0.0" ixz="0.0"
+                        iyy="8.72e-8" iyz="0.0"
+                        izz="6.722e-9" />
+            </inertial>
         </link>
         <joint name="${prefix}_${suffix}_roller_joint" type="continuous">
                 <axis xyz="0 0 1" />
@@ -29,16 +34,12 @@
                 <origin xyz="${cos(theta)*wheel_radius} ${sin(theta)*wheel_radius} 0" rpy="0 ${roller_orientation} ${(pi/2)+theta}"/>
         </joint>
 
-        <!-- This block provides the simulator (Gazebo) with information on a few additional
-        physical properties. See http://gazebosim.org/tutorials/?tut=ros_urdf for more-->
-        <gazebo reference="${prefix}_${suffix}_roller">
-            <material>Gazebo/Grey</material>
-        </gazebo>
     </xacro:macro>
 
 
     <xacro:macro name="wheel" params="prefix suffix radius length mass offset_x offset_y offset_z wheel_roller_orientation">
         <link name="${prefix}_${suffix}_wheel">
+            
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <geometry>
@@ -46,13 +47,22 @@
                 </geometry>
                 <material name="orange"/>
             </visual>
+
             <collision>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <geometry>
                     <cylinder radius="${radius}" length="${length}"/>
                 </geometry>
             </collision>
-            <!-- <xacro:roller_inertial mass="${mass}"/>     -->
+
+            <inertial>
+                <origin xyz = "0 0 0"/>
+                <mass value="0.4"/>
+                <inertia ixx="0.000239" ixy="0.0" ixz="0.0"
+                        iyy="0.000239" iyz="0.0"
+                        izz="0.000044" />
+            </inertial>
+
         </link>
 
         <joint name="${prefix}_${suffix}_wheel_joint" type="continuous">

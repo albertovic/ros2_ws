@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
-
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="rona">
 
     <!-- In this file the basic structure of the omnidirectional robot RONA is described -->
 
@@ -43,24 +42,20 @@
         <parent link="base_link"/>
         <child link="chassis"/>
         <origin xyz="0 0 0.022"/>
-    </joint>
-
-    <gazebo reference="chassis">
-        <material>Gazebo/Blue</material>
-    </gazebo>    
+    </joint>   
         
 
     <!-- Front left wheel -->
-    <xacro:wheel prefix="front" suffix="left" radius="0,0375" length="0,05" mass="0.4" offset_x="${wheel_offset_x}" offset_y="${wheel_offset_y}" offset_z="${wheel_offset_z}" wheel_roller_orientation="${pi/4}"/>
+    <xacro:wheel prefix="front" suffix="left" radius="0.0375" length="0.05" mass="0.4" offset_x="${wheel_offset_x}" offset_y="${wheel_offset_y}" offset_z="${wheel_offset_z}" wheel_roller_orientation="${pi/4}"/>
 
     <!-- Front right wheel -->
-    <xacro:wheel prefix="front" suffix="right" radius="0,0375" length="0,05" mass="0.4" offset_x="${wheel_offset_x}" offset_y="${-wheel_offset_y}" offset_z="${wheel_offset_z}" wheel_roller_orientation="${-pi/4}"/>
+    <xacro:wheel prefix="front" suffix="right" radius="0.0375" length="0.05" mass="0.4" offset_x="${wheel_offset_x}" offset_y="${-wheel_offset_y}" offset_z="${wheel_offset_z}" wheel_roller_orientation="${-pi/4}"/>
 
     <!-- Back left wheel -->
-    <xacro:wheel prefix="back" suffix="left" radius="0,0375" length="0,05" mass="0.4" offset_x="${-wheel_offset_x}" offset_y="${wheel_offset_y}" offset_z="${wheel_offset_z}" wheel_roller_orientation="${-pi/4}"/>
+    <xacro:wheel prefix="back" suffix="left" radius="0.0375" length="0.05" mass="0.4" offset_x="${-wheel_offset_x}" offset_y="${wheel_offset_y}" offset_z="${wheel_offset_z}" wheel_roller_orientation="${-pi/4}"/>
     
     <!-- Back right wheel -->
-    <xacro:wheel prefix="back" suffix="right" radius="0,0375" length="0,05" mass="0.4" offset_x="${-wheel_offset_x}" offset_y="${-wheel_offset_y}" offset_z="${wheel_offset_z}" wheel_roller_orientation="${pi/4}"/>
+    <xacro:wheel prefix="back" suffix="right" radius="0.0375" length="0.05" mass="0.4" offset_x="${-wheel_offset_x}" offset_y="${-wheel_offset_y}" offset_z="${wheel_offset_z}" wheel_roller_orientation="${pi/4}"/>
    
     <!-- ROBOT DESCRIPTION END -->    
 
