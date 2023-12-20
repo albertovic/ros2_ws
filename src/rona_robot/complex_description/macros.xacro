@@ -26,6 +26,8 @@
                         iyy="8.72e-8" iyz="0.0"
                         izz="6.722e-9" />
             </inertial>
+
+
         </link>
         <joint name="${prefix}_${suffix}_roller_joint" type="continuous">
                 <axis xyz="0 0 1" />
@@ -33,6 +35,11 @@
                 <child link="${prefix}_${suffix}_roller"/>
                 <origin xyz="${cos(theta)*wheel_radius} ${sin(theta)*wheel_radius} 0" rpy="0 ${roller_orientation} ${(pi/2)+theta}"/>
         </joint>
+
+        <gazebo reference="${prefix}_${suffix}_roller">
+            <mu1>100000000000000.0</mu1>
+            <mu2>100000000000000.0</mu2>
+        </gazebo>
 
     </xacro:macro>
 
@@ -75,6 +82,11 @@
         <gazebo reference="${prefix}_${suffix}_wheel">
             <material>Gazebo/Orange</material>
         </gazebo>   
+
+        <gazebo reference="${prefix}_${suffix}_roller">
+            <mu1>100000000000000.0</mu1>
+            <mu2>100000000000000.0</mu2>
+        </gazebo>
 
         <xacro:roller prefix="${prefix}_${suffix}" suffix="one" theta="${2*pi*(1/10)}" roller_orientation="${wheel_roller_orientation}"/>
         <xacro:roller prefix="${prefix}_${suffix}" suffix="two" theta="${2*pi*(2/10)}" roller_orientation="${wheel_roller_orientation}"/>

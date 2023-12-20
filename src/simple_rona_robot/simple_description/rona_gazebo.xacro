@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+
+<robot name="rona" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="inertial_macros.xacro"/>
+
+    <gazebo reference="front_left_wheel">
+        <!-- <xacro:inertial_cylinder mass="0.4" length="0.05" radius="0.0375" /> -->
+        <gazebo reference="wheel_left_link">
+            <mu1>100000000000000.0</mu1>
+            <mu2>100000000000000.0</mu2>
+            <kp>1000000000000.0</kp>
+            <kd>10.0</kd>
+            <minDepth>0.001</minDepth>
+            <maxVel>0.1</maxVel>
+            <fdir1>1 0 0</fdir1>
+        </gazebo>
+    </gazebo>
+
+    <gazebo reference="front_right_wheel">
+        <!-- <xacro:inertial_cylinder mass="0.4" length="0.05" radius="0.0375" /> -->
+        <gazebo reference="wheel_left_link">
+            <mu1>100000000000000.0</mu1>
+            <mu2>100000000000000.0</mu2>
+            <kp>1000000000000.0</kp>
+            <kd>10.0</kd>
+            <minDepth>0.001</minDepth>
+            <maxVel>0.1</maxVel>
+            <fdir1>1 0 0</fdir1>
+        </gazebo>
+    </gazebo>
+
+    <gazebo reference="rear_left_wheel">
+        <!-- <xacro:inertial_cylinder mass="0.4" length="0.05" radius="0.0375" /> -->
+        <gazebo reference="wheel_left_link">
+            <mu1>100000000000000.0</mu1>
+            <mu2>100000000000000.0</mu2>
+            <kp>1000000000000.0</kp>
+            <kd>10.0</kd>
+            <minDepth>0.001</minDepth>
+            <maxVel>0.1</maxVel>
+            <fdir1>1 0 0</fdir1>
+        </gazebo>
+    </gazebo>
+
+    <gazebo reference="rear_right_wheel">
+        <!-- <xacro:inertial_cylinder mass="0.4" length="0.05" radius="0.0375" /> -->
+        <gazebo reference="wheel_left_link">
+            <mu1>100000000000000.0</mu1>
+            <mu2>100000000000000.0</mu2>
+            <kp>1000000000000.0</kp>
+            <kd>10.0</kd>
+            <minDepth>0.001</minDepth>
+            <maxVel>0.1</maxVel>
+            <fdir1>1 0 0</fdir1>
+        </gazebo>
+    </gazebo>
+    
+</robot>
