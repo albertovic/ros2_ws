@@ -4,7 +4,6 @@ from geometry_msgs.msg import Twist
 from std_msgs.msg import Float64MultiArray
 
 import argparse
-   
 
 class KeyboardNode(Node):
     #In this innit function, a path for the logger file is shared
@@ -33,6 +32,7 @@ class KeyboardNode(Node):
         linear_y = keyboard_msg.linear.y
         abs_linear_y = abs(linear_y)
         angular_z = keyboard_msg.angular.z
+        abs_angular_z = abs(angular_z)
 
         self.get_logger().info(f'Twist Values: linear_x={linear_x}, linear_y={linear_y}, angular_z={angular_z}')
 
@@ -42,6 +42,13 @@ class KeyboardNode(Node):
             velocities = [-abs_linear_y, abs_linear_y, abs_linear_y, -abs_linear_y]
         elif linear_x == 0.0 and linear_y < 0.0 and angular_z == 0.0:
             velocities = [abs_linear_y, -abs_linear_y, -abs_linear_y, abs_linear_y]
+        #Turn anti-clockwise
+        elif linear_x == 0.0 and linear_y == 0.0 and angular_z > 0.0:
+            velocities = [-abs_angular_z, abs_angular_z, -abs_angular_z, abs_angular_z]
+        #Turn clockwise
+        elif linear_x == 0.0 and linear_y == 0.0 and angular_z < 0.0:
+            velocities = [abs_angular_z, -abs_angular_z, abs_angular_z, -abs_angular_z]
+        #Complete stop
         else:
             velocities = [0.0, 0.0, 0.0, 0.0]
 
