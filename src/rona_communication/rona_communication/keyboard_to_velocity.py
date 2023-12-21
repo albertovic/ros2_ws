@@ -29,17 +29,20 @@ class KeyboardNode(Node):
 
 
         linear_x = keyboard_msg.linear.x
+        abs_linear_x = abs(linear_x)
         linear_y = keyboard_msg.linear.y
         abs_linear_y = abs(linear_y)
         angular_z = keyboard_msg.angular.z
         abs_angular_z = abs(angular_z)
 
         self.get_logger().info(f'Twist Values: linear_x={linear_x}, linear_y={linear_y}, angular_z={angular_z}')
-
-        if linear_x != 0.0 and angular_z == 0.0:
-            velocities = [linear_x, linear_x, linear_x, linear_x]
+        #Movement forward/backward
+        if linear_x != 0.0 and linear_y == 0.0 and angular_z == 0.0:
+            velocities = [linear_x, linear_x, linear_x, linear_x]     
+        #Movement to the right
         elif linear_x == 0.0 and linear_y > 0.0 and angular_z == 0.0:
             velocities = [-abs_linear_y, abs_linear_y, abs_linear_y, -abs_linear_y]
+        #Movement to the right
         elif linear_x == 0.0 and linear_y < 0.0 and angular_z == 0.0:
             velocities = [abs_linear_y, -abs_linear_y, -abs_linear_y, abs_linear_y]
         #Turn anti-clockwise
@@ -48,6 +51,12 @@ class KeyboardNode(Node):
         #Turn clockwise
         elif linear_x == 0.0 and linear_y == 0.0 and angular_z < 0.0:
             velocities = [abs_angular_z, -abs_angular_z, abs_angular_z, -abs_angular_z]
+        #Movement up to the left
+        elif linear_x > 0.0 and linear_y == 0.0 and angular_z > 0.0:
+            velocities = [abs_linear_x, 0.0, 0.0, abs_linear_x]
+        #Movement up to the right
+        elif linear_x > 0.0 and linear_y == 0.0 and angular_z < 0.0:
+            velocities = [0.0, abs_linear_x, abs_linear_x, 0.0]
         #Complete stop
         else:
             velocities = [0.0, 0.0, 0.0, 0.0]
