@@ -25,7 +25,7 @@ if(BUILD_TESTING)
 endif()
 
 install(
-  DIRECTORY config complex_description launch worlds meshes rviz
+  DIRECTORY config complex_description launch worlds meshes rviz rona_robot
   DESTINATION share/${PROJECT_NAME}
 )
 
