@@ -1,3 +1,5 @@
+#This file is in charge of launching the node keyboard_to_velocity. See more info in the "keyboard_to_velocity.py" file
+
 from launch import LaunchDescription
 from launch_ros.actions import Node
 

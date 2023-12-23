@@ -3,6 +3,8 @@
     <xacro:include filename="physical_properties.xacro"/>
     <xacro:include filename="inertial_macros.xacro"/>
 
+    <!-- Here the macros for the wheel and roller creation are defined -->
+    
     <xacro:macro name="roller" params="prefix suffix theta roller_orientation">
         <link name="${prefix}_${suffix}_roller">
             <visual>

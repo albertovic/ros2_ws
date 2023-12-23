@@ -1,3 +1,7 @@
+#This file launches the gazebo related launchfile "gazebo.launch.py" and the spawner launchfile 
+#"controller.launch.py" from the rona_controller package. The spawn of the controllers configures them thanks to the code
+#from "rona_gazebo.xacro"
+
 from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription
 import os

@@ -5,9 +5,9 @@
     <xacro:property name="chassis_length" value="0.297"/>
     <xacro:property name="chassis_width" value="0.188"/>
     <xacro:property name="chassis_height" value="0.09"/>
-    <!-- En rviz el eje X es el rojo, el Y el verde y el Z el azul -->
+    <!-- In rviz the X axis is red, the Y axis green and the Z axis blue -->
 
-    <!-- Wheels parameters -->
+    <!-- Wheels measures -->
     <xacro:property name="wheel_offset_y" value="${chassis_width/2 + 0.025}"/>
     <xacro:property name="wheel_offset_x" value="${chassis_length/2 - 0.051}"/>
     <xacro:property name="wheel_offset_z" value="0.028"/>

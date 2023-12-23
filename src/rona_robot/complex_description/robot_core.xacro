@@ -7,8 +7,7 @@
     <xacro:include filename="macros.xacro"/>
     <xacro:include filename="colors.xacro"/>
     <xacro:include filename="physical_properties.xacro"/>
-    <xacro:include filename="rona_ros2_control.xacro"/>
-    <xacro:include filename="rona_gazebo.xacro"/>
+
 
     <!-- ROBOT DESCRIPTION START -->
 

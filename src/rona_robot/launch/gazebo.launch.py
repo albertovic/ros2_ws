@@ -1,3 +1,11 @@
+#This launchfile is in charge of launching a bunch of stuff:
+# 1. The path to the urdf model is defined with "model_arg"
+# 2. After that, the GAZEBO_MODEL_PART environmental variable is set to be the path of the share folder of the package.
+# 3. Then the robot_state_publisher is launched
+# 4. The gazebo server and client are launched including already made launch files.
+# 5. Lastly, the robot is spawned thanks to the executable "spawn_entity.py" from the gazebo_ros package
+#    The necessary arguments are passed to it, so it can read from the topic "robot_description"
+
 from launch import LaunchDescription
 from launch_ros.actions import Node
 from launch.actions import DeclareLaunchArgument, SetEnvironmentVariable, IncludeLaunchDescription
@@ -12,7 +20,7 @@ def generate_launch_description():
 
     model_arg = DeclareLaunchArgument(
         name="model",
-        default_value=os.path.join(get_package_share_directory("rona_robot"), "complex_description", "robot_core.xacro"),
+        default_value=os.path.join(get_package_share_directory("rona_robot"), "complex_description", "robot.urdf.xacro"),
         description="Absolute path to robot URDF file"
     )
 

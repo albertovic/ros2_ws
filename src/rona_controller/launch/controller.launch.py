@@ -1,3 +1,5 @@
+#This launch file is in charge of spawning the controller nodes that will be used 
+
 from launch import LaunchDescription
 from launch_ros.actions import Node
 
@@ -8,12 +10,13 @@ def generate_launch_description():
         executable="spawner",
         arguments=[
             "joint_state_broadcaster",
+            #This sets the namespace
             "--controller-manager",
             "/controller_manager"
         ]
     )
 
-    simple_controller = Node(
+    simple_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
         arguments=[
@@ -25,5 +28,5 @@ def generate_launch_description():
 
     return LaunchDescription([
         joint_state_broadcaster_spawner,
-        simple_controller
+        simple_controller_spawner
     ])

@@ -1,3 +1,9 @@
+#This node has a subscriptor to the /cmd_vel topic (message type = Twist).
+#The Twist messages from that topic are then converted to Float64MultiArray messages and sent to another
+# topic via a publisher. The new topic is the one that sends info to the robot so it can move.
+
+#Recap: This node receives certain info from keyboard input and transforms it to velocity commands for the robot.
+
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
@@ -6,8 +12,9 @@ from std_msgs.msg import Float64MultiArray
 import argparse
 
 class KeyboardNode(Node):
-    #In this innit function, a path for the logger file is shared
-    
+
+
+    #In the inicialization function, a subscriber and a publisher are created, as well as a variable called vel_msg.
     def __init__(self):
         super().__init__('keyboard_listener')
 
@@ -25,6 +32,8 @@ class KeyboardNode(Node):
 
         self.subscription #prevent unussed variable warning
 
+    #This function is the main one, in charge of receiveing a message from the keyboard input and publish it to a 
+    # topic in charge of sending velocity commands to the actuators
     def keyboard_to_velocity(self, keyboard_msg):
 
 
@@ -61,29 +70,15 @@ class KeyboardNode(Node):
         else:
             velocities = [0.0, 0.0, 0.0, 0.0]
 
-        # Define a dictionary to map conditions to velocities
-        # conditions_to_velocities = {
-        #     (linear_x > 0.0, linear_y == 0.0, angular_z == 0.0): [linear_x, linear_x, linear_x, linear_x],  # Move forward
-        #     (linear_x < 0.0, linear_y == 0.0, angular_z == 0.0): [linear_x, linear_x, linear_x, linear_x],  # Move backward
-        #     # (linear_x == 0.0, linear_y == 0.0, angular_z > 0.0): [0.0, 0.0, angular_z, 0.0],  # Rotate clockwise
-        #     # (linear_x == 0.0, linear_y == 0.0, angular_z < 0.0): [0.0, 0.0, angular_z, 0.0],  # Rotate counterclockwise
-        #     (True, True, True): [0.0, 0.0, 0.0, 0.0],  # Default (stop)
-        # }          
-
-        # self.get_logger().info(f'Conditions: {(linear_x > 0.0, linear_y == 0.0, angular_z == 0.0)}')
-
-        # matched_condition = next((cond for cond, vel in conditions_to_velocities.items() if cond), None)
-        # self.get_logger().info(f'Matched Condition: {matched_condition}')
-
-        # velocities = conditions_to_velocities.get(matched_condition, [0.0, 0.0, 0.0, 0.0])
-
 
         self.vel_msg.data = velocities
 
         self.get_logger().info(f'Published Velocities: {self.vel_msg.data}')
 
+    #This function is the callback for the subscriber. It calls the transformation function and then publishes the 
+    # transformed message to another topic
     def listener_callback(self, msg):
-        self.get_logger().info(f'I heard: {msg.linear.x}, {msg.linear.y}, {msg.linear.z}, {msg.angular.x}, {msg.angular.y}, {msg.angular.z}')
+        #self.get_logger().info(f'I heard: {msg.linear.x}, {msg.linear.y}, {msg.linear.z}, {msg.angular.x}, {msg.angular.y}, {msg.angular.z}')
         self.keyboard_to_velocity(msg)
         self.vel_publisher_.publish(self.vel_msg)
 
