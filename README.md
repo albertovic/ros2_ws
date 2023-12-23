@@ -1,7 +1,7 @@
 # ros2_ws (English)
 
 ## Introduction
-This repository contains certain packages that I have been developing throughout my learning of ROS2. It includes part of the development of my Bachelor's Thesis on underwater communications.
+This repository contains certain packages that I have been developing throughout my learning of ROS2. It includes part of the development of my Bachelor's Thesis on underwater communications and other projects, such as RONA.
 
 ## RONA
 In this section, you will find packages related to the development of an Autonomous Omnidirectional Navigation Robot (RONA). The idea is to create a physical robot that can perform autonomous navigation using a LIDAR. At the moment, I am focusing on learning how to program simulations and simulating the robot in Gazebo.
@@ -35,7 +35,7 @@ This package contains the necessary libraries to correctly read sensors in the p
 # ros2_ws (Español)
 
 ##Introducción
-Este repositorio contiene ciertos paquetes que he ido desarrollando a lo largo de mi aprendizaje de ROS2. Contiene parte del desarrollo de mi TFG sobre comunicaciones submarinas
+Este repositorio contiene ciertos paquetes que he ido desarrollando a lo largo de mi aprendizaje de ROS2. Contiene parte del desarrollo de mi TFG sobre comunicaciones submarinas, además de otros proyectos como RONA.
 
 ##RONA
 En esta sección se encuentran los paquetes relacionados con el desarollo de un Robot Omindireccional de Navegación Autónoma (RONA). La idea es hacer un robot físico que, mediante un LIDAR, pueda realizar navegación autónoma. Por el momento, me estoy limitando a aprender a programar las simulaciones y a simular el robot en Gazebo.
