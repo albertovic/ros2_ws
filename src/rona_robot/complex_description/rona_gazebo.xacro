@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<robot name="bumperbot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- This is needed for ros2 control. An actuator should be created for each wheel -->
+    <transmission name="front_right_wheel_transmission">
+        <plugin>transmissionInterface/SimpleTransmission</plugin>
+        <actuator name="front_right_wheel_motor" role="actuator_front_right"/>
+        <joint name="front_right_wheel_joint" role="joint_front_right">
+            <mechanical_reduction>1.0</mechanical_reduction>
+        </joint>
+    </transmission>
+
+    <transmission name="front_left_wheel_transmission">
+        <plugin>transmissionInterface/SimpleTransmission</plugin>
+        <actuator name="front_left_wheel_motor" role="actuator_front_left"/>
+        <joint name="front_left_wheel_joint" role="joint_front_left">
+            <mechanical_reduction>1.0</mechanical_reduction>
+        </joint>
+    </transmission>
+
+    <transmission name="rear_right_wheel_transmission">
+        <plugin>transmissionInterface/SimpleTransmission</plugin>
+        <actuator name="rear_right_wheel_motor" role="actuator_rear_right"/>
+        <joint name="rear_right_wheel_joint" role="joint_rear_right">
+            <mechanical_reduction>1.0</mechanical_reduction>
+        </joint>
+    </transmission>
+
+    <transmission name="rear_left_wheel_transmission">
+        <plugin>transmissionInterface/SimpleTransmission</plugin>
+        <actuator name="rear_left_wheel_motor" role="actuator_rear_left"/>
+        <joint name="rear_left_wheel_joint" role="joint_rear_left">
+            <mechanical_reduction>1.0</mechanical_reduction>
+        </joint>
+    </transmission>
+
+    <!-- A gazebo plugin will be now added. -->
+
+    <gazebo>
+        <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+            <!-- This indicates to the plugin how it can access to the robot parameters. The topic used for the robot description -->
+            <robot_param>robot_description</robot_param>
+            <!-- This indicates the node that publishes the robot parameters to the "robot_description" topic -->
+            <robot_param_node>robot_state_publisher</robot_param_node>
+            <!-- This indicates the name of the file that contains the configuration parameters of the ros2 control library -->
+            <parameters>$(find rona_controller)/config/rona_controllers.yaml</parameters>
+        </plugin>
+    </gazebo>
+
+    <!-- The gazebo references are in the macros file -->
+</robot>

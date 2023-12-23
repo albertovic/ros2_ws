@@ -1,0 +1,22 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/alberto/ros2_ws/install/tutorial_interfaces/local/lib/python3.10/dist-packages",
+        "/home/alberto/ros2_ws/install/sensors_modules/lib/python3.10/site-packages",
+        "/home/alberto/ros2_ws/install/py_pubsub/lib/python3.10/site-packages",
+        "/home/alberto/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages",
+        "/home/alberto/nav2/install/tutorial_nav2/lib/python3.10/site-packages",
+        "/home/alberto/nav2/install/bumperbot_py_examples/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/alberto/ros2_ws/install/tutorial_interfaces/local/lib/python3.10/dist-packages",
+        "/home/alberto/ros2_ws/install/sensors_modules/lib/python3.10/site-packages",
+        "/home/alberto/ros2_ws/install/py_pubsub/lib/python3.10/site-packages",
+        "/home/alberto/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages",
+        "/home/alberto/nav2/install/tutorial_nav2/lib/python3.10/site-packages",
+        "/home/alberto/nav2/install/bumperbot_py_examples/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}

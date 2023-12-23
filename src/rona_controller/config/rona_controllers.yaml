@@ -1,0 +1,27 @@
+#A yaml file always starts with the name of the node to which the configuration parameters refer
+controller_manager:
+  #TWO UNDERSCORES!!
+  ros__parameters:
+    #This indicates the frecuency at the control loop is updated and executed
+    update_rate: 100
+    use_sim_time: true
+
+    #Here, the names of the controllers we want to use for the are defined:
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+      #This module is responsible of publishing the current state of each joint to a topic
+
+    #The actual controller for hte robots wheels
+    simple_velocity_controller:
+      type: velocity_controllers/JointGroupVelocityController
+
+#Now the defined modules need to be configured. The joint_state_broadcaster will be left as default
+
+#However, the simple_velocity_controller needs to know which are the joints that it will actuate
+simple_velocity_controller:
+  ros__parameters:
+    joints:
+      - front_left_wheel_joint
+      - front_right_wheel_joint
+      - rear_left_wheel_joint
+      - rear_right_wheel_joint

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >  
+    
+    <xacro:include filename="inertial_macros.xacro"/>
+
+    <xacro:macro name="roller" params="prefix suffix theta roller_orientation">
+        <link name="${prefix}_${suffix}_roller">
+            <visual>
+                <origin xyz="-0.5 -0.5 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh scale="0.001 0.001 0.001" filename="package://rona_robot/meshes/MecanumWheel_Roller.stl" />
+                </geometry>
+                <material name="black"/>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <cylinder radius="0.0082" length="0.045"/>
+                </geometry>
+            </collision>
+            <xacro:inertial_cylinder mass="0.001" length="0.045" radius="0.0082">
+                <origen xyz="0 0 0" rpy="0 0 0"/>
+            </xacro:inertial_cylinder>
+        </link>
+        <joint name="${prefix}_${suffix}_roller_joint" type="continuous">
+                <axis xyz="0 0 1" />
+                <parent link="${prefix}_wheel"/>
+                <child link="${prefix}_${suffix}_roller"/>
+                <origin xyz="${cos(theta)*wheel_radius} ${sin(theta)*wheel_radius} 0" rpy="0 ${roller_orientation} ${(pi/2)+theta}"/>
+        </joint>
+    </xacro:macro>
+
+</robot>
