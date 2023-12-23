@@ -34,34 +34,34 @@ This package contains the necessary libraries to correctly read sensors in the p
 
 # ros2_ws (Español)
 
-##Introducción
+## Introducción
 Este repositorio contiene ciertos paquetes que he ido desarrollando a lo largo de mi aprendizaje de ROS2. Contiene parte del desarrollo de mi TFG sobre comunicaciones submarinas, además de otros proyectos como RONA.
 
-##RONA
+## RONA
 En esta sección se encuentran los paquetes relacionados con el desarollo de un Robot Omindireccional de Navegación Autónoma (RONA). La idea es hacer un robot físico que, mediante un LIDAR, pueda realizar navegación autónoma. Por el momento, me estoy limitando a aprender a programar las simulaciones y a simular el robot en Gazebo.
 
-###rona_robot
+### rona_robot
 Es el paquete principal para el modelado de RONA. Ya funciona la simulación en gazebo y se puede mover el robot utilizando el teclado. Falta por desarrollar código para navegación y recolección de datos de sensores que aún no tengo.
 
-###rona_controller
+### rona_controller
 Este paquete se usa principalmente para configuración de controladores y para spawnearlos.
 
-###rona_communication
+### rona_communication
 Este paquete se usa para convertir las pulsaciones de las teclas del teclado en comandos de velocidad para el robot. Pasa de un mensaje Twist del nodo teleop_twist_keyboard a un mensaje Float64MultiArray para poder mandarlo al topic 
 /simple_velocity_controller/commands, el cual es el que lleva los comandos de velocidad al robot.
 
-###simple_rona_robot
+### simple_rona_robot
 Es un paquete que ahora mismo no estoy usando, era otro enfoque para resolver el problema del robot omnidireccional, sin entrar en la complejidad de modelar las ruedas con detalle, pero como la primera opción parece funcionar correctamente prefiero seguir con esa
 
-##Otros paquetes 
+## Otros paquetes 
 
-###py_pubsub
+### py_pubsub
 Este paquete lo he utilizado para hacer pruebas sobre publicadores y suscriptores con mensajes personalizados. Contiene dos parejas de publicador/suscriptor:
 - La primera de ellas no recoge información de ningún sensor externo, sino que el publicador va dando datos según una variable que crece con el tiempo. El publicador se llama con </ros2 run py_pubsub talker> y el subscriptor con </ros2 run py_pubsub listener>.
 - La segunda compila pero falta por probarla con los sensores físicos. Esta sí recoge la información de los sensores reales y la manda con un mensaje personalizado. Está hecho para que funcione con los sensores de mi TFG. El prublicador se llama con </ros2 run py_pubsub publisher_sensors> añadiendo los flags necesarios con la dirección del archivo de lectura de los datos del echosounder </--device AMA...>. Y el subscriptor con </ros2 run py_pubsub subscriber_sensors -f file.log>. En este caso se indica el path del archivo en el que se quiere que se guarde la información leída.
        
-###tutorial_interfaces
+### tutorial_interfaces
 Este paquete contiene la información de los mensajes personalizados mencionados en py_pubsub.
 
-###sensors_modules
+### sensors_modules
 Este paquete contiene las librerías necesarias para leer correctamente los sensores en el publicador de py_pubsub. Se ha generado una dependencia de py_pubsub sobre este paquete y así se ha conseguido hacer la importación de las librerías sin tener que modificar a mano la carpeta install.
