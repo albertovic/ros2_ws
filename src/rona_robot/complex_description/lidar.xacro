@@ -1,12 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
-    <joint name="laser_joint" type="fixed">
-        <parent link="chassis"/>
-        <child link="laser_frame"/>
-        <origin xyz="0.122 0 0.212" rpy="0 0 0"/>
-    </joint>
-
     <link name="laser_frame">
         <visual>
             <geometry>
@@ -31,33 +25,50 @@
         </xacro:inertial_cylinder>
     </link>
 
-
+    <joint name="laser_joint" type="fixed">
+        <parent link="chassis"/>
+        <child link="laser_frame"/>
+        <origin xyz="0 0 0.1098" rpy="0 0 0"/>
+    </joint>
 
     <gazebo reference="laser_frame">
         <material>Gazebo/Black</material>
 
+        <!-- This adds a simulated lidar sensor -->
         <sensor name="laser" type="ray">
+            <!-- The origin of the sensor is the one of the link in this case -->
             <pose> 0 0 0 0 0 0 </pose>
-            <visualize>false</visualize>
+            <!-- To visualize the rays in gazebo, set it to true -->
+            <visualize>true</visualize>
+            <!-- This indicates how many times per second we want the sensor to update -->
             <update_rate>10</update_rate>
+            <!-- The ray tag specifies the parameters for the virtual ray sensor -->
             <ray>
                 <scan>
+                    <!-- This indicates that the sensor is scanning horizontally -->
+                    <!-- With 360 samples and ranging from -pi to pi radians -->
                     <horizontal>
                         <samples>360</samples>
                         <min_angle>-3.14</min_angle>
                         <max_angle>3.14</max_angle>
                     </horizontal>
                 </scan>
+                <!-- This specifies the minimum and maximum range of the sensor -->
                 <range>
                     <min>0.3</min>
                     <max>12</max>
                 </range>
             </ray>
+            <!-- Plugins are how we get gazebo to interact with things outside gazebo -->
+            <!-- The filename is the important parameter here -->
             <plugin name="laser_controller" filename="libgazebo_ros_ray_sensor.so">
+                <!-- This is telling what topic to publish the message to -->
                 <ros>
                     <argument>~/out:=scan</argument>
                 </ros>
+                <!-- Here is set the type of message we want to publish -->
                 <output_type>sensor_msgs/LaserScan</output_type>
+                <!-- And here the frame name to put in the LaserScan message -->
                 <frame_name>laser_frame</frame_name>
             </plugin>
         </sensor>
