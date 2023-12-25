@@ -1,5 +1,6 @@
 #This launchfile is in charge of launching a bunch of stuff:
 # 1. The path to the urdf model is defined with "model_arg"
+# 2. The world path can be defined in the "world" argument or just by writing world:=/usr/share/gazebo-11/worlds/worldName
 # 2. After that, the GAZEBO_MODEL_PART environmental variable is set to be the path of the share folder of the package.
 # 3. Then the robot_state_publisher is launched
 # 4. The gazebo server and client are launched including already made launch files.
@@ -24,6 +25,13 @@ def generate_launch_description():
         description="Absolute path to robot URDF file"
     )
 
+    world_arg = DeclareLaunchArgument(
+        name="world",
+        default_value=os.path.join(get_package_share_directory("rona_robot"), "worlds", "obstacles.world"),
+        description="Absolute path to Gazebo world file"
+    )
+
+
     robot_description = ParameterValue(Command(["xacro ", LaunchConfiguration("model")]), value_type=str)
 
     robot_state_publisher = Node(
@@ -36,7 +44,7 @@ def generate_launch_description():
 
     start_gazebo_server = IncludeLaunchDescription(PythonLaunchDescriptionSource(
         os.path.join(get_package_share_directory("gazebo_ros"), "launch", "gzserver.launch.py")
-    ), launch_arguments={'paused': 'true'}.items())
+        ), launch_arguments={'paused': 'true', 'world': LaunchConfiguration("world")}.items())
 
     start_gazebo_client = IncludeLaunchDescription(PythonLaunchDescriptionSource(
         os.path.join(get_package_share_directory("gazebo_ros"), "launch", "gzclient.launch.py")
@@ -51,6 +59,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         model_arg,
+        world_arg,
         env_var,
         robot_state_publisher,
         start_gazebo_client,
