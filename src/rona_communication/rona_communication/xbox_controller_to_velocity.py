@@ -15,12 +15,12 @@ class XboxControllerNode(Node):
             self.joy_callback,
             10)
 
-        self.vel_publisher = self.create_publisher(
+        self.raw_vel_publisher = self.create_publisher(
             Float64MultiArray,
-            '/simple_velocity_controller/commands', 
+            '/kinematics_controller/commands', 
             10)
         
-        self.vel_msg = Float64MultiArray()
+        self.raw_vel_msg = Float64MultiArray()
 
 
     def joy_callback(self, joy_msg):
@@ -30,13 +30,6 @@ class XboxControllerNode(Node):
         # Your logic for mapping joystick values to robot velocities
         # Assuming a 4-wheeled omnidirectional robot with mecanum wheels
 
-        #These values need to be parameters but are variables for now
-        linear_vel = 0.6
-        angular_vel = 2
-        lenght = 0.15
-        width = 0.09
-        radius = 0.05
-
         #Filter to avoid the high sensitivity of the controller
         if (linear_x < 0.1) and (linear_x > (-0.1)):
             linear_x = 0.0
@@ -45,24 +38,17 @@ class XboxControllerNode(Node):
         if angular_z < 0.1 and angular_z > (-0.1):
             angular_z = 0.0
           
-        #Here I multiply the desired velocity with the controller input, to have the correct spin direction of the wheels
-        v_x = linear_vel*linear_x  # Forward/backward motion
-        v_y = linear_vel*linear_y  # Sideways motion
-        v_rot = angular_vel*angular_z  # Rotation in place
-
         # Assuming mecanum wheel configuration (front-left, front-right, rear-right, rear-left)
         # Using direct kinematics, the angular velocity for each wheel should be as follows
         velocities = [
-            ((-(lenght)-width)*v_rot + v_x - v_y)/radius ,  # Front left wheel
-            ((lenght + width)*v_rot + v_x + v_y)/radius ,  # Front right wheel
-            ((lenght + width)*v_rot + v_x - v_y)/radius ,  # Rear right wheel
-            ((-(lenght)-width)*v_rot + v_x + v_y)/radius    # Rear left wheel
+            linear_x ,  # Velocity in the X axis
+            linear_y ,  # Velocity in the Y axis
+            angular_z ,  # Angular velocity (Z axis)
         ]
         
         #Here the final velocities are published to the correct topic and printed in a terminal
-        self.vel_msg.data = velocities
-        self.get_logger().info(f'Published Velocities: {self.vel_msg.data}')
-        self.vel_publisher.publish(self.vel_msg)
+        self.raw_vel_msg.data = velocities
+        self.raw_vel_publisher.publish(self.raw_vel_msg)
 
 def main(args=None):
     rclpy.init(args=args)

@@ -14,6 +14,18 @@ def generate_launch_description():
             parameters=[joy_params],
          )
 
+    xbox_to_vel = Node(
+        package="rona_communication",
+        executable="xbox_controller_to_velocity",
+    )
+
+    direct_kinematics = Node(
+        package="rona_communication",
+        executable="direct_kinematics_node",
+    )            
+
     return LaunchDescription([
-        joy_node    
+        joy_node,
+        xbox_to_vel,
+        direct_kinematics    
     ])
