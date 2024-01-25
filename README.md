@@ -7,13 +7,24 @@ This repository contains certain packages that I have been developing throughout
 In this section, you will find packages related to the development of an Autonomous Omnidirectional Navigation Robot (RONA). The idea is to create a physical robot that can perform autonomous navigation using a LIDAR. At the moment, I am focusing on learning how to program simulations and simulating the robot in Gazebo.
 
 ### rona_robot
-This is the main package for modeling RONA. The Gazebo simulation is already functional, and the robot can be moved using the keyboard. Code for navigation and sensor data collection, which I do not yet have, is yet to be developed.
+This is the main package for modeling RONA. The Gazebo simulation is already functional with a LIDAR sensor, and the robot can be moved using the keyboard or an Xbox controller (with direct kinematics control). Code for navigation and sensor data collection, which I do not yet have, is yet to be developed.
+
+To run the keyboard control use this command:
+`ros2 launch rona_robot complete_gazebo.launch.py`
+and
+`ros2 run teleop_twist_keyboard teleop_twist_keyboard`
+
+To run the Xbox controller control use this command:
+`ros2 launch rona_robot xbox_complete_gazebo.launch.py`
 
 ### rona_controller
 This package is primarily used for configuring controllers and spawning them.
 
 ### rona_communication
-This package is used to convert keyboard key presses into velocity commands for the robot. It transforms Twist messages from the teleop_twist_keyboard node into Float64MultiArray messages to be sent to the `/simple_velocity_controller/commands` topic, which carries velocity commands to the robot.
+This package contains these nodes: 
+- keyboard_to_velocity.py: converts keyboard key presses into velocity commands for the robot. It transforms Twist messages from the teleop_twist_keyboard node into Float64MultiArray messages to be sent to the `/simple_velocity_controller/commands` topic, which carries velocity commands to the robot.
+- xbox_controller_to_velocity.py: subscribes to the `/joy` topic and converts joy messages into velocity commands. These messages are then published into `/kinematics_controller/command` topic. The velocity commands will be of Float64MultiArray type and will have this structure: [velocity_X_axis, velocity_Y_axis, angular_velocity]. Each of them will range from -1 to 1.
+- direct_kinematics_node.py: This node will subscribe to the `/kinematics_controller/command` topic and transform the velocity messages to wheel speeds. This messages NEED to be in the mentioned format [velocity_X_axis, velocity_Y_axis, angular_velocity]. Each of them will range from -1 to 1. After the transformation, the new message is published into `/simple_velocity_controller/commands` topic.
 
 ### simple_rona_robot
 This package is currently not in use; it was another approach to solve the omnidirectional robot problem without going into the complexity of modeling wheels in detail. Since the first option seems to work correctly, I prefer to continue with that.
